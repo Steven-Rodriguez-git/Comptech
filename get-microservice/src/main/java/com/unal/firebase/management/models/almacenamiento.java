@@ -1,21 +1,18 @@
 package com.unal.firebase.management.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
-public class Almacenamiento {
+@Data
+public class almacenamiento {
 
-    public  String documentId;
-    public  int id;
-    public  int capacidad;
-    public  String marca;
-    public  String nombre;
-    public  int precio;
-    public  String tipo;
-    public  int velEscritura;
-    public  int velLectura;
+    private int id;
+    private int capacidad;
+    private String marca;
+    private String nombre;
+    private int precio;
+    private String tipo;
+    private int velEscritura;
+    private int velLectura;
 
     
 }
