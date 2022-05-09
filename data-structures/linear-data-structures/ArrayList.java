@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication9;
+package linear-data-structures;
 
 /**
  *
@@ -11,7 +11,7 @@ package javaapplication9;
  */
 public class ArrayList<T extends Comparable<T>>{
 
-    T Arrayd[] = (T[]) new Comparable[10];
+    private T Arrayd[] = (T[]) new Comparable[10];
     int cola = 0;
 
     public void push(T dato) {
@@ -25,7 +25,14 @@ public class ArrayList<T extends Comparable<T>>{
         Arrayd[cola] = dato;
         cola++;
     }
-
+    
+    public void change(int index,  T ingreso){
+        Arrayd[index] = ingreso;
+    }
+    
+    T Search(int index){
+        return Arrayd[index];
+    }
     public void pop() {
         cola--;
     }
@@ -36,7 +43,19 @@ public class ArrayList<T extends Comparable<T>>{
             pop();
         }
     }
+    
+    public T[] GetArrayd(){
+        if (cola == Arrayd.length){
+            return Arrayd;
+        }else{
+            T arrays[] = (T[]) new Comparable[cola];
+            for(int i=0; i<cola; i++){
+                arrays[i] = Arrayd[i];
+            }
+            return arrays;
+        }
 
+    }
  
 
 }
