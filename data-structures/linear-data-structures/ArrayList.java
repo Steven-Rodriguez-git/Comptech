@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package linear-data-structures;
 
-/**
- *
- * @author tique
- */
+package Estructuras;
 public class ArrayList<T extends Comparable<T>>{
 
-    private T Arrayd[] = (T[]) new Comparable[10];
+    T Arrayd[] = (T[]) new Comparable[10];
     int cola = 0;
 
     public void push(T dato) {
@@ -25,14 +16,7 @@ public class ArrayList<T extends Comparable<T>>{
         Arrayd[cola] = dato;
         cola++;
     }
-    
-    public void change(int index,  T ingreso){
-        Arrayd[index] = ingreso;
-    }
-    
-    T Search(int index){
-        return Arrayd[index];
-    }
+
     public void pop() {
         cola--;
     }
@@ -44,18 +28,10 @@ public class ArrayList<T extends Comparable<T>>{
         }
     }
     
-    public T[] GetArrayd(){
-        if (cola == Arrayd.length){
-            return Arrayd;
-        }else{
-            T arrays[] = (T[]) new Comparable[cola];
-            for(int i=0; i<cola; i++){
-                arrays[i] = Arrayd[i];
-            }
-            return arrays;
-        }
-
+    public T Search(int index){
+        return Arrayd[index];
     }
+
  
 
 }

@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author tique
- */
+
+package Estructuras;
+
 public class Cola<T extends Comparable<T>> {
 
     public class nodo {
@@ -44,14 +38,15 @@ public class Cola<T extends Comparable<T>> {
         }
     }
     
-    public T search(int index ){
+   public T search(int index ){
         nodo buscado = cabeza;
-        while(index >= 0){
+        while(index > 0){
             if(buscado.siguiente == null){
-                System.out.println("Out of range");
+                System.out.println("Out of range"+buscado.siguiente);
                 return null; 
             }else{
                 buscado = buscado.siguiente;
+                index--;
             }
         }
         return buscado.dato;

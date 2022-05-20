@@ -1,7 +1,8 @@
-import java.io.*;
-import java.util.*;
+package Estructuras;
 
-class Node <T extends Comparable<T>>{
+public class LinkedList <T extends Comparable<T>>{
+
+public class Node <T extends Comparable<T>>{
     T data;
     Node next;
     Node (T d){
@@ -11,7 +12,7 @@ class Node <T extends Comparable<T>>{
 
 }
 
-class Main <T extends Comparable<T>>{
+class linkedList <T extends Comparable<T>>{
     public Node add(Node head,T data, int position){
     Node start = head;
     Node copia = head;
@@ -51,10 +52,12 @@ class Main <T extends Comparable<T>>{
         return false;
     }
     
-    /*
-    public T getFront(Node head){
-    return head.data;
+    
+    public void getFront(Node head){
+        System.out.println(head.data);
+        //TODO
     }
+    /*
     public T getBack (Node head){
     Node start = head;
         while(start != null){
@@ -65,9 +68,6 @@ class Main <T extends Comparable<T>>{
 
     */
     public Node popFront (Node head){
-        if(head.next == null){
-            return null;
-        }
         head = head.next;
         return head;
     }
@@ -80,6 +80,10 @@ class Main <T extends Comparable<T>>{
     
     }
     public Node insertFront (Node head,T data){
+        if(head.data==null){
+            Node start = new Node(data);
+            return start;
+        }
         Node start = new Node(data);
         start.next = head;
         return start;
@@ -97,7 +101,7 @@ class Main <T extends Comparable<T>>{
         return head;
 
     }
-    public static void display(Node head){
+    public void display(Node head){
         Node start = head;
         while(start != null){
             System.out.print(start.data + " ");
@@ -105,7 +109,7 @@ class Main <T extends Comparable<T>>{
         }
     }
 
-    public void main(String[] args) {
-        //insert data
-    }
+    
+}
+
 }

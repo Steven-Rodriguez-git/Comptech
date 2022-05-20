@@ -1,4 +1,7 @@
-public class CrearALC <T extends Comparable<T>>{  
+
+package Estructuras;
+
+public class ALCircular <T extends Comparable<T>>{  
     //Se muestra el nodo como una lista 
     public class Node{  
         T dato;  
@@ -33,34 +36,20 @@ public class CrearALC <T extends Comparable<T>>{
             cola = newNode;  
             //Como es ALCircular la cola apuntara a la cabeza
             cola.siguiente = cabeza;  
-        }  
+        }
+        
+       
     }  
-  
-    //Muestra todos los nodos en la lista
-        // public void display() {  
-        //     Node actual = cabeza;  
-        //     if(cabeza == null) {  
-        //         System.out.println("La lista esta vacia");  
-        //     }  
-        //     else {  
-        //         System.out.println("Los nodos de la lista circular son: ");  
-        //          do{  
-        //             //imprime cada nodo incrementando el apuntador   
-        //             System.out.print(" "+ actual.dato);  
-        //             actual = actual.siguiente;  
-        //         }while(actual != cabeza);  
-        //         System.out.println();  
-        //     }  
-        // }  
-    
-        // public static void main(String[] args) {  
-        //     CrearALC cl = new CrearALC();  
-        //     //añade datos a la lista 
-        //     cl.add(1);  
-        //     cl.add(2);  
-        //     cl.add(3);  
-        //     cl.add(4);  
-        //     //Imprime todos los nodos que se encuentran en la lista
-        //     cl.display();  
-        // }  
-}  
+    public T search(int index ){
+        Node buscado = cabeza;
+        while(index >= 0){
+            if(buscado.siguiente == null){
+                System.out.println("Out of range");
+                return null; 
+            }else{
+                buscado = buscado.siguiente;
+            }
+        }
+        return buscado.dato;
+    }
+}

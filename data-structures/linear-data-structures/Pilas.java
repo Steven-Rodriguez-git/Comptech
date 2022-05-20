@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package linear-data-structures;
+package Estructuras;
+import Estructuras.ArrayList;
 /**
  *
  * @author tique
@@ -12,34 +13,35 @@ package linear-data-structures;
 public class Pilas <T extends Comparable<T>>{
 
     int tope = 0;
-    private ArrayList Arrayd = new ArrayList();
+    ArrayList Arrayd = new ArrayList();
 
-    void push(T ingreso) {
+    public void push(T ingreso) {
         Arrayd.push(ingreso);
         tope++;
     }
-    
-    void Change(int index,T ingreso){
-        Arrayd.Change(index,ingreso);
-    }
-    
-    T Search(int index){
-        return Arrayd.Search(index);
-    }
 
-    void pop() {
+    public void pop() {
         Arrayd.pop(tope);
         tope--;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         if (tope == 0) {
             return true;
         } else {
             return false;
         }
     }
-    public T[] getArrayd(){
-        return Arrayd.GetArrayd();
+    public void Search(int index){
+        Arrayd.Search(index);
+
+        if(index%1000==0){
+        System.out.print("dato Actual: ");
+        Arrayd.Search(index);
+        
+        }
+ 
+        //TODO
     }
+    
 }
