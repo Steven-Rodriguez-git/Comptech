@@ -17,11 +17,11 @@ public class FirebaseIni {
 
   @PostConstruct
   private void initFirebase() throws IOException {
-    InputStream serviceAccount = getClass().getClassLoader().getResourceAsStream("steven-admin-privatekey-firebase.json");
+    InputStream serviceAccount = getClass().getClassLoader().getResourceAsStream("david-admin-privatekey-firebase.json");
 
     FirebaseOptions options = new FirebaseOptions.Builder()
       .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-      .setDatabaseUrl("https://estructuras-d00dc-default-rtdb.firebaseio.com")
+      .setDatabaseUrl("https://estructuras2-6b96d-default-rtdb.firebaseio.com")
       .build();
 
     if(FirebaseApp.getApps().isEmpty()){
