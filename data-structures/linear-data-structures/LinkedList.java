@@ -8,10 +8,10 @@ package Estructuras;
         -data se cambió por dato
         -Se hizo format al código porque estaba con tabulaciones raras.
         -Se añadieron MUCHOS comentarios para cuando se le haga revisión de datos al código
-        -add no funciona, el dato se pierde y al usar display solo aparece el dato que inicialicé en tiempo de compilación.
+        -add no funciona, el dato se pierde y al usar display solo aparece el dato que inicialicé en tiempo de compilación ademas de nullpointer exceptions
  */
 
-class linkedList {  //Es una LinkedList pero sin cola ni cabeza y 1 solo enlace osea simple
+class linkedList {  //Es una LinkedList pero sin cola  y 1 solo enlace osea simple
 
     public nodo add(nodo head, Comparable dato, int position) {
         nodo start = head;
@@ -66,14 +66,14 @@ class linkedList {  //Es una LinkedList pero sin cola ni cabeza y 1 solo enlace 
     }
 
      */
-    public nodo popFront(nodo head) {
+    public nodo popFront(nodo head) {   // con 1 solo dato genera nullException porque siguiente no ha sido inicializada
         head = head.siguiente;
         return head;
     }
 
     public nodo popBack(nodo head) {
         nodo start = head;
-        while (start.siguiente != null) {
+        while (start.siguiente != null) {   //Al añadirle 1 solo dato no realiza el pop
             start = start.siguiente;
         }
         return start;

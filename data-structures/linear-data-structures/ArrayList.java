@@ -27,8 +27,8 @@ public class ArrayList<T extends Comparable<T>>{
     }
 
     public T pop() {    //LIFO, retorna el último dato
-        cola--;        // reducimos la cola
-        return Arrayd[cola+1]; // devolvemos el dato eliminado
+        cola--;        // PreDecremento
+        return Arrayd[cola]; // devolvemos el dato eliminado
     }
 
     public T pop(int index) {
