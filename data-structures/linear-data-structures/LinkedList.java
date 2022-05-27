@@ -1,115 +1,113 @@
 package Estructuras;
 
-public class LinkedList <T extends Comparable<T>>{
+/*
+        ************** REVISION EL 27/05/2022 **********************
+        -Por alguna razón habia 3 clases en una sola clase de nombre LinkedList o.O, se arreglaron a solo 1.
+        -Se reemplazó T por solo Comparable
+        -Node se cambió por nodo
+        -data se cambió por dato
+        -Se hizo format al código porque estaba con tabulaciones raras.
+        -Se añadieron MUCHOS comentarios para cuando se le haga revisión de datos al código
+        -add no funciona, el dato se pierde y al usar display solo aparece el dato que inicialicé en tiempo de compilación.
+ */
 
-public class Node <T extends Comparable<T>>{
-    T data;
-    Node next;
-    Node (T d){
-        data = d;
-        next = null;
-    }
+class linkedList {  //Es una LinkedList pero sin cola ni cabeza y 1 solo enlace osea simple
 
-}
-
-class linkedList <T extends Comparable<T>>{
-    public Node add(Node head,T data, int position){
-    Node start = head;
-    Node copia = head;
-    for(int i=0;i<position;i++){
-        start = start.next;
-    }
-    copia =start.next;
-    start.next= null;
-    start = insertBack(start,data);
-    start.next = copia;
-
-    return start;
-    }
-
-
-
-    public int getSize(Node head){
-        int tamano = 0;
-        Node start = head;
-        while(start != null){
-            tamano++;
-            start = start.next;
+    public nodo add(nodo head, Comparable dato, int position) {
+        nodo start = head;
+        nodo copia;
+        
+        for (int i = 0; i < position; i++) {
+            start = start.siguiente;
         }
+        
+        copia = start.siguiente;
+        start.siguiente = null; // Se me hace que esta linea sobra, pero la dejaré para cuando haga pruebas.
+        start = insertBack(start, dato); // Acá solo se edita Start.siguiente
+        start.siguiente = copia; // Acá se vuelve a editar Start.siguiente.... este codigo funciona? xd
 
+        return start;
+    }
+
+    public int getSize(nodo head) {
+        int tamano = 0;
+        nodo start = head;
+        while (start != null) {
+            tamano++;
+            start = start.siguiente;
+        }
 
         return tamano;
     }
 
-
-    public Node makeEmpty(Node head){
+    public nodo makeEmpty(nodo head) {
         return head = null;
     }
-    public boolean isEmpty(Node head){
-        if(head==null){
+
+    public boolean isEmpty(nodo head) {
+        if (head == null) {
             return true;
         }
         return false;
     }
-    
-    
-    public void getFront(Node head){
-        System.out.println(head.data);
-        //TODO
-    }
-    /*
-    public T getBack (Node head){
-    Node start = head;
-        while(start != null){
-            start = start.next;
-        }
-        return start.data;
+
+    public void getFront(nodo head) {
+        System.out.println(head.dato);
+        //ComparableODO
     }
 
-    */
-    public Node popFront (Node head){
-        head = head.next;
+    /*
+    public Comparable getBack (nodo head){
+    nodo start = head;
+        while(start != null){
+            start = start.siguiente;
+        }
+        return start.dato;
+    }
+
+     */
+    public nodo popFront(nodo head) {
+        head = head.siguiente;
         return head;
     }
-    public Node popBack (Node head){
-    Node start = head;
-    while(start.next != null){
-        start = start.next;
+
+    public nodo popBack(nodo head) {
+        nodo start = head;
+        while (start.siguiente != null) {
+            start = start.siguiente;
+        }
+        return start;
+
     }
-    return start;
-    
-    }
-    public Node insertFront (Node head,T data){
-        if(head.data==null){
-            Node start = new Node(data);
+
+    public nodo insertFront(nodo head, Comparable dato) { //Insertar en la primera posición de la lista.
+        if (head.dato == null) {//Un if para insertar cuando la lista está vacia
+            nodo start = new nodo(dato);
             return start;
         }
-        Node start = new Node(data);
-        start.next = head;
+        nodo start = new nodo(dato);
+        start.siguiente = head;
         return start;
     }
-    public Node insertBack(Node head, T data){
-        if(head==null){
-            return new Node(data);
-        }
-        else if(head.next==null){
-            head.next = new Node(data);
-        }
-        else{
-            insertBack(head.next,data);
+
+    public nodo insertBack(nodo head, Comparable dato) {
+        if (head == null) {
+            return new nodo(dato);
+        } else if (head.siguiente == null) {
+            head.siguiente = new nodo(dato);    // Insert Back guarda en la siguiente posicion? eso no deberia ser inserFront?
+        } else {
+            insertBack(head.siguiente, dato);
         }
         return head;
 
     }
-    public void display(Node head){
-        Node start = head;
-        while(start != null){
-            System.out.print(start.data + " ");
-            start = start.next;
+
+    public void display(nodo head) {
+        nodo start = head;
+        while (start != null) {
+            System.out.print(start.dato + " ");
+            start = start.siguiente;
         }
     }
-
-    
-}
 
 }
