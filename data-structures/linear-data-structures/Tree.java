@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Estructuras;
+
 public class Tree <T extends Comparable<T>> {
     nodo_binario root; // todavia no le doy uso, pero pronto.
     
@@ -55,7 +56,7 @@ public class Tree <T extends Comparable<T>> {
                     root = rotacionIzquierda(root);
                 }              
             }else{  //desequilibrado a la derecha
-                int balance_siguiente = equilibrio(root.left);
+                int balance_siguiente = equilibrio(root.right);
                 if(balance_siguiente >= 0){ // significa balance simple, el árbol derecho tambien se desbalancea la derecha
                     root = rotacionDerecha(root);                    
                 }else{ //balance doble, balanceamos el nodo derecho por el lado de la izquierda
