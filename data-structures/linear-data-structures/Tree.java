@@ -49,7 +49,7 @@ public class Tree <T extends Comparable<T>> {
         }else{
             if(balance < -1){    // osea que está desequilibrado a la izquierda
                 int balance_siguiente = equilibrio(root.left);
-                if(balance_siguiente < 0){ // significa balance simple, el árbol izquierda tambien se desbalancea la izquierda
+                if(balance_siguiente <= 0){ // significa balance simple, el árbol izquierda tambien se desbalancea la izquierda
                     root = rotacionIzquierda(root);                    
                 }else{ //balance doble, balanceamos el nodo izquierdo por el lado de la derecha
                     root.left = rotacionDerecha(root.left);
