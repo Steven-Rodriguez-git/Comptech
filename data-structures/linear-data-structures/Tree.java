@@ -23,10 +23,10 @@ public class Tree <T extends Comparable<T>> {
         }else{
             if(0<= root.dato.compareTo(data)){ // Usamos el compareTo (que es funcion por defecto de los genéricos T) 
                                                   // para poder comparar si es menor o igual a data (retorna un entero dependiendo de si es menor(-), igual(=) o mayor(+))
-                root.left = this.insert(root.left,data); // le digo que revise el nodo_binario de la izquierda como si fuese tambien un árbol hasta encontrar un nodo_binario nulo donde vaya el dato
+                root.left = insert(root.left,data); // le digo que revise el nodo_binario de la izquierda como si fuese tambien un árbol hasta encontrar un nodo_binario nulo donde vaya el dato
                 
             }else{
-                root.right = this.insert(root.right,data);
+                root.right = insert(root.right,data);
             }
         return root; // devuelvo la misma raiz para no afectar el árbol y devolverme.
         }
@@ -60,7 +60,7 @@ public class Tree <T extends Comparable<T>> {
                 if(balance_siguiente >= 0){ // significa balance simple, el árbol derecho tambien se desbalancea la derecha
                     root = rotacionDerecha(root);                    
                 }else{ //balance doble, balanceamos el nodo derecho por el lado de la izquierda
-                    root.right = rotacionIzquierda(root.left);
+                    root.right = rotacionIzquierda(root.right);
                     root = rotacionDerecha(root);
                 }
                 
@@ -108,23 +108,61 @@ public class Tree <T extends Comparable<T>> {
         }
     }
     
-    // ******************* EL DISPLAY NO TA FUNCIONANDO OJO ************************
+    // ******************* EL display() level-order NO TA FUNCIONANDO OJO ************************
     // MOTIVO: parece que nuestra pila noa cepta tipos nodo_binario y no puede "ser casteado" a Comparable
     public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
-        Pilas queu = new Pilas();
+        Cola queu = new Cola();
         if(root != null){
-            queu.push((Comparable)root.dato);
-            nodo_binario tree;
+            queu.enqueue(root);
+            nodo_binario tree ;
             while(!queu.isEmpty()){ //Mientras NO esté vacio (por eso el "!")
-                tree = new nodo_binario(queu.pop(0));
+                tree = queu.dequeue();
                 System.out.print(tree.dato);
                 
                 if(tree.left!=null){
-                    queu.push((Comparable)tree.left);
+                    queu.enqueue(tree.left);
                 }
                 if(tree.right!=null){
-                    queu.push((Comparable)tree.right);
+                    queu.enqueue(tree.right);
                 }
+            }
+        }
+    }
+    
+    public void display2(nodo_binario root){    // imprimir en pre order
+        
+        if(root != null){   // por si envian un árobl null
+            System.out.print(root.dato);
+            if(root.left != null){
+                display2(root.left);
+            }
+            if(root.right != null){
+                display2(root.right);
+            }
+        }
+    }
+
+    
+    public void display3(nodo_binario root){ // PostOrden
+        if(root!= null){
+            if(root.left!=null){
+                display3(root.left);
+            }
+            if(root.right!=null){
+                display3(root.right);
+            }            
+            System.out.print(root.dato);
+        }
+    }
+    
+    public void display4(nodo_binario root){    //Inorder
+        if(root!= null){
+            if(root.left!=null){
+                display4(root.left);
+            }
+            System.out.print(root.dato);
+            if(root.right!=null){
+                display4(root.right);
             }
         }
     }
