@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Estructuras;
-
-public class  Tree <T extends Comparable<T>> {
+public class Tree <T extends Comparable<T>> {
     nodo_binario root; // todavia no le doy uso, pero pronto.
     
     Tree(){// no usamos el constructor todavia, pero pronto
@@ -13,59 +12,59 @@ public class  Tree <T extends Comparable<T>> {
     }
     
     //---------------------------------------------------------------------------------------------------------    
-    // ***************************** OJO ESTE ARBOL NO EST√? BALANCEADO **************************************
-    // para dar uso del balanceo toca usar el m√©todo rotaci√≥n() para equilibrarlo cada vez que sucede un insert.
+    // ***************************** OJO ESTE ARBOL NO EST¡ BALANCEADO **************************************
+    // para dar uso del balanceo toca usar el mÈtodo rotaciÛn() para equilibrarlo cada vez que sucede un insert.
     //---------------------------------------------------------------------------------------------------------
     
     public nodo_binario insert(nodo_binario root, T data){ 
         if(root == null){            
             return new nodo_binario(data);  // inicializo la raiz (o el nodo_binario nulo) para insertarle el dato en esa posicion            
         }else{
-            if(0<= root.dato.compareTo(data)){ // Usamos el compareTo (que es funcion por defecto de los gen√©ricos T) 
+            if(0<= root.dato.compareTo(data)){ // Usamos el compareTo (que es funcion por defecto de los genÈricos T) 
                                                   // para poder comparar si es menor o igual a data (retorna un entero dependiendo de si es menor(-), igual(=) o mayor(+))
-                root.left = this.insert(root.left,data); // le digo que revise el nodo_binario de la izquierda como si fuese tambien un √°rbol hasta encontrar un nodo_binario nulo donde vaya el dato
+                root.left = this.insert(root.left,data); // le digo que revise el nodo_binario de la izquierda como si fuese tambien un ·rbol hasta encontrar un nodo_binario nulo donde vaya el dato
                 
             }else{
                 root.right = this.insert(root.right,data);
             }
-        return root; // devuelvo la misma raiz para no afectar el √°rbol y devolverme.
+        return root; // devuelvo la misma raiz para no afectar el ·rbol y devolverme.
         }
     }
     
     public int equilibrio(nodo_binario root){
-        if(root == null){   // por si la raiz est√° vacia
+        if(root == null){   // por si la raiz est· vacia
             return 0;
         }
         return getHeight(root.right) - getHeight(root.left);
     }
     
-    public nodo_binario rotacion(nodo_binario root){    // nos ayuda a identificar si es necesario hacer una rotaci√≥n simple o doble.
+    public nodo_binario rotacion(nodo_binario root){    // nos ayuda a identificar si es necesario hacer una rotaciÛn simple o doble.
         if(root == null){
             return root;
         }
         int balance = equilibrio(root);
         if(balance == 0 || balance == -1 || balance == 1){
-            return root; // porque ya est√° equilibrado
+            return root; // porque ya est· equilibrado
         }else{
-            if(balance < -1){    // osea que est√° desequilibrado a la izquierda
+            if(balance < -1){    // osea que est· desequilibrado a la izquierda
                 int balance_siguiente = equilibrio(root.left);
-                if(balance_siguiente < 0){ // significa balance simple, el √°rbol izquierda tambien se desbalancea la izquierda
+                if(balance_siguiente < 0){ // significa balance simple, el ·rbol izquierda tambien se desbalancea la izquierda
                     root = rotacionIzquierda(root);                    
                 }else{ //balance doble, balanceamos el nodo izquierdo por el lado de la derecha
                     root.left = rotacionDerecha(root.left);
                     root = rotacionIzquierda(root);
-                }
-                return root;                
+                }              
             }else{  //desequilibrado a la derecha
                 int balance_siguiente = equilibrio(root.left);
-                if(balance_siguiente >= 0){ // significa balance simple, el √°rbol derecho tambien se desbalancea la derecha
+                if(balance_siguiente >= 0){ // significa balance simple, el ·rbol derecho tambien se desbalancea la derecha
                     root = rotacionDerecha(root);                    
                 }else{ //balance doble, balanceamos el nodo derecho por el lado de la izquierda
                     root.right = rotacionIzquierda(root.left);
                     root = rotacionDerecha(root);
                 }
-                return root; 
+                
             }
+        return rotacion(root); 
         }
     }
     
@@ -84,7 +83,7 @@ public class  Tree <T extends Comparable<T>> {
     }
     
     public int getHeight(nodo_binario root){
-        if(root == null){   //caso de cuando la raiz est√° vacia o si llegamos iterativamente al final del √°rbol
+        if(root == null){   //caso de cuando la raiz est· vacia o si llegamos iterativamente al final del ·rbol
             return 0;
         }
         if(root.right == null && root.left == null){
@@ -113,9 +112,9 @@ public class  Tree <T extends Comparable<T>> {
     public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
         Pilas queu = new Pilas();
         if(root != null){
-            queu.push((Comparable)root);
+            queu.push((Comparable)root.dato);
             nodo_binario tree;
-            while(!queu.isEmpty()){ //Mientras NO est√© vacio (por eso el "!")
+            while(!queu.isEmpty()){ //Mientras NO estÈ vacio (por eso el "!")
                 tree = new nodo_binario(queu.pop(0));
                 System.out.print(tree.dato);
                 
