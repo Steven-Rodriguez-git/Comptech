@@ -1,8 +1,17 @@
 
 package Estructuras;
 public class ArrayList<T extends Comparable<T>>{
-
-    T Arrayd[] = (T[]) new Comparable[10];
+    
+    /*
+        ************** REVISION EL 27/05/2022 **********************
+        -Se añadieron comentarios
+        -Se explicó la diferencia de pop() y pop(index)
+        -pop() y pop(index) ahora retornan el valor eliminado
+        -El search() permite acceder a datos eliminados sin reemplazar
+        -Search y push funcionan bien
+    */
+    
+    private T Arrayd[] = (T[]) new Comparable[10]; //Faltan getters y setters, que los genere spring
     int cola = 0;
 
     public void push(T dato) {
@@ -17,18 +26,21 @@ public class ArrayList<T extends Comparable<T>>{
         cola++;
     }
 
-    public void pop() {
-        cola--;
+    public T pop() {    //LIFO, retorna el último dato
+        cola--;        // PreDecremento
+        return Arrayd[cola]; // devolvemos el dato eliminado
     }
 
-    public void pop(int index) {
-        for (int i = index; i < (Arrayd.length) - 1; i++) {
-            Arrayd[i] = Arrayd[i + 1];
-            pop();
+    public T pop(int index) {
+        T popped = Arrayd[index];
+        for (int i = index; i < (Arrayd.length) - 1; i++) { // movemos los datos 1 posicion
+            Arrayd[i] = Arrayd[i + 1];            
         }
+        cola--; // movemos la cola
+        return popped; //retornamos el dato eliminado
     }
     
-    public T Search(int index){
+    public T Search(int index){ //Tenemos un caso interesante en el que datos eliminados que no han sido reemplazados por un push puedo acceder a ellos todavia. jaja
         return Arrayd[index];
     }
 

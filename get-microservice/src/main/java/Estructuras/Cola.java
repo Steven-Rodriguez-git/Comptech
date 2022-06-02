@@ -2,17 +2,12 @@
 package Estructuras;
 
 public class Cola<T extends Comparable<T>> {
-
-    public class nodo {
-
-        T dato;
-        nodo siguiente;
-
-        public nodo(T dato) {
-            this.dato = dato;
-        }
-
-    }
+    /*
+        ************** REVISION EL 27/05/2022 **********************
+        -Se añadieron comentarios genéricos para comprender el código.
+        -Se creó isEmpty()
+        -enqueue y search funcionan bien
+    */
     
     public nodo cabeza = null;
     public nodo cola = null;
@@ -31,14 +26,26 @@ public class Cola<T extends Comparable<T>> {
         }
                 
     }
-    
-    public void dequeue(){
+    //intenté public T dequeue() pero no me deja
+    public Comparable dequeue(){  // Estructura FIFO, dequeue saca el primer dato
+        Comparable dequeued = cabeza.dato;
         if (cabeza.siguiente != null){
             cabeza = cabeza.siguiente;
+        }else{  //Significa que solo hay un dato
+            cabeza = null;
+        }
+        return dequeued;
+    }
+    
+    public boolean isEmpty(){
+        if(cabeza == null){
+            return true;
+        }else{
+            return false;
         }
     }
     
-   public T search(int index ){
+   public Comparable search(int index ){    //intenté public T search() pero no me deja
         nodo buscado = cabeza;
         while(index > 0){
             if(buscado.siguiente == null){
