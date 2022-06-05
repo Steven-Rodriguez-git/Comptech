@@ -135,7 +135,7 @@ return null;
 }
 
 
-
+// Esta función no debería seguir existiendo, está mal hecha en comparación  a las demás de abajo
 public long getCRUDAllProcesador()throws InterruptedException, ExecutionException {
 System.out.println("------------Procesador->ArrayList");
 //Procesador procesador;
@@ -146,7 +146,7 @@ long totalStart = System.currentTimeMillis();
 long totalEnd = 0;
 ArrayList arregloDinamico = new ArrayList();
 
-for(int i=0;i<procesadoresPrueba.length;i++){
+for(int i=0;i<procesadoresPrueba.length;i++){ // en este for solo estan metiendo 10 datos y luego buscan esos mismos 10 datos dentro de este mismo for osea ... ? hay que buscarlos en la base de datos.
     start = System.currentTimeMillis();
     String documentId=procesadoresPrueba[i];
     Firestore dbFireStore = FirestoreClient.getFirestore();

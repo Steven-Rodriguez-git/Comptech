@@ -15,6 +15,7 @@ public class Tree <T extends Comparable<T>> {
     //---------------------------------------------------------------------------------------------------------    
     // ***************************** OJO ESTE ARBOL NO ESTÁ BALANCEADO **************************************
     // para dar uso del balanceo toca usar el método rotación() para equilibrarlo cada vez que sucede un insert.
+    // También se puede añadir los datos y luego usar rotación() para convertirlo en uno balanceado.
     //---------------------------------------------------------------------------------------------------------
     
     public nodo_binario insert(nodo_binario root, T data){ 
@@ -29,6 +30,26 @@ public class Tree <T extends Comparable<T>> {
                 root.right = insert(root.right,data);
             }
         return root; // devuelvo la misma raiz para no afectar el árbol y devolverme.
+        }
+    }
+    
+    public boolean search(nodo_binario root, T data){
+        if(root == null){
+            return false;
+        }else{
+            nodo_binario buscado = root;
+            int dato_b; // guarda el resultado de compareTo();
+            while(buscado!=null){   //Se termina si llega al final del árbol
+                dato_b = buscado.dato.compareTo(data);
+                if(0==dato_b){
+                    return true;
+                }else if(0<dato_b){
+                    buscado = buscado.right;
+                }else{
+                    buscado = buscado.left;
+                }
+            }
+            return false;
         }
     }
     
