@@ -18,13 +18,13 @@ export default function IconLabelTabs() {
   return (
     <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example">
       <Link to="/">
-        <Tab href="/" sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"} }} icon={<HomeIcon/>} label="HOME" />
+        <Tab href="/" sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"},"&:hover": { color: "#12005e" ,opacity:"55%"} }} icon={<HomeIcon/>} label="HOME" />
       </Link>
       <Link to='/'>
-      <Tab sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"}}} icon={<HardwareIcon />} label="ALL COMPONENTS"/>
+      <Tab sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"},"&:hover": { color: "#12005e" ,opacity:"55%"} }} icon={<HardwareIcon />} label="ALL COMPONENTS"/>
       </Link>
       <Link to="/help">
-        <Tab sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"}}} icon={<HelpIcon />} label="HELP"/>
+        <Tab sx={{color: "white", opacity:"48%","&:focus": { color: "#12005e" ,opacity:"55%"}, "&:hover": { color: "#12005e" ,opacity:"55%"} }} icon={<HelpIcon />} label="HELP"/>
       </Link> 
     </Tabs>
   );
