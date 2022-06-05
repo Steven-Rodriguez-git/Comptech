@@ -27,7 +27,7 @@ export default function Cabezera() {
       width: '100%',
       height: '7%',
       display: 'flex',
-      backgroundColor: '#dda15e',
+      backgroundColor: '#455a64',
       alignItems:"center"
     }}>
       <Logo></Logo>

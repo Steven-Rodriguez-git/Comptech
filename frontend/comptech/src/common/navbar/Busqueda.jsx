@@ -46,7 +46,7 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
   
-export default function Cabezera() {
+export default function Busqueda() {
 
     return (
         <Box>

@@ -3,6 +3,7 @@ import Cabezera from './common/navbar/Cabezera';
 import './App.css';
 import Home from './pages/Home/Home';
 import Principal from './pages/Home/Principal';
+import Help from './pages/Help/Help';
 import Footer from './common/Footer';
 import { BrowserRouter  as Router, Routes, Route } from 'react-router-dom'
 
@@ -13,7 +14,9 @@ function App() {
       {/* <NavBar />  */}
        <Routes>
       {/* <Route path="/" element={<Home />} />      */}
-      <Route path="/" element={<Principal></Principal>}></Route>
+      <Route path="/" element={<Principal/>}></Route>
+      <Route path="/help" element={<Help/>}></Route>
+      
        </Routes>
    <div/>
     <Footer></Footer>
