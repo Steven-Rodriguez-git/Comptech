@@ -1,5 +1,5 @@
-package com.mycompany.linearDataStructures;
 
+package com.mycompany.linearDataStructures;
 import com.mycompany.linearDataStructures.ArrayList; // Este import me marca como que "no encuentra ArrayList" pero si lo quito da m�s errores lol.
 
 public class Pilas{
@@ -32,7 +32,10 @@ public class Pilas{
     }
     
     public Comparable Search(int index){    // Puedo acceder tambien a posiciones de datos recientemente eliminados o:
-        return Arrayd.Search(index);
+        return Arrayd.search(index);
     }
     
+    public int Search(Comparable dato){
+        return Arrayd.search(dato);
+    }
 }

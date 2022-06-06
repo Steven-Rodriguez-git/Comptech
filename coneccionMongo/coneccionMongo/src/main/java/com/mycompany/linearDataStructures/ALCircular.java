@@ -65,4 +65,22 @@ public class ALCircular<T extends Comparable<T>> {
         }*/
         
     }
+    
+    public int search(T dato){
+        nodo buscar = cabeza;
+        int contador= 0;
+        while(buscar!=cola && buscar!=null){
+            if(0 == buscar.dato.compareTo(dato)){
+                return contador;
+            }
+            contador++;
+            buscar = buscar.siguiente;
+        }
+        if(buscar==null){ // reviso la cola
+            return -1;
+        }else if(0 == buscar.dato.compareTo(dato)){
+            return contador;
+        }
+        return -1;
+    }
 }
