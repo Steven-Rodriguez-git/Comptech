@@ -1,5 +1,5 @@
-package com.mycompany.linearDataStructures;
 
+package com.mycompany.linearDataStructures;
 public class ArrayList<T extends Comparable<T>>{
     
     /*
@@ -40,8 +40,17 @@ public class ArrayList<T extends Comparable<T>>{
         return popped; //retornamos el dato eliminado
     }
     
-    public T Search(int index){ //Tenemos un caso interesante en el que datos eliminados que no han sido reemplazados por un push puedo acceder a ellos todavia. jaja
+    public T search(int index){ //Tenemos un caso interesante en el que datos eliminados que no han sido reemplazados por un push puedo acceder a ellos todavia. jaja
         return Arrayd[index];
+    }
+    
+    public int search(T dato){
+        for(int i = 0; i<cola; i++){
+            if(Arrayd[i] == dato){
+                return i;
+            }
+        }
+        return -1;
     }
 
  
