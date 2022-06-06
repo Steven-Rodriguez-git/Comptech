@@ -18,9 +18,13 @@ export default function Ayudas (){
         </Typography>
       </Grid>
       <Grid >
+      <Grid item>
+        <Typography variant="h5">
+        2. Te apareceran de la siguiente forma los perifericos seleccionados. Ahora dale al boton "Comparar" y listo!
+        </Typography>
+      </Grid>
       <Typography  color="text.secondary">      
-      A continuacion te daremos una leve explicacion 
-        para que uses a tu comodidad este sitio
+     Esto puede demorar un tiempo, ya que se estan sacando los datos en tiempo real de la base de datos
         </Typography>
       </Grid>
     </Grid>

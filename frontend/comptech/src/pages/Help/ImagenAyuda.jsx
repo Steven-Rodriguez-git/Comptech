@@ -8,7 +8,7 @@ function MainImage () {
   return (
     <React.Fragment>
       <Container fluid style={{padding:"0"}}>   
-        <Image fluid src="/imageHeader.jpg" alt="src"/>
+        <Image fluid src="/logo512.png" alt="src"/>
       </Container>
     </React.Fragment>
   );
