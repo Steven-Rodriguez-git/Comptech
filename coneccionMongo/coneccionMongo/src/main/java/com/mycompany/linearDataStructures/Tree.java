@@ -152,7 +152,7 @@ public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
     public void display2(nodo_binario root){    // imprimir en pre order
         
         if(root != null){   // por si envian un �robl null
-            System.out.print(root.dato);
+            System.out.println(root.dato);
             if(root.left != null){
                 display2(root.left);
             }
@@ -171,7 +171,7 @@ public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
             if(root.right!=null){
                 display3(root.right);
             }            
-            System.out.print(root.dato);
+            System.out.println(root.dato);
         }
     }
     
@@ -180,7 +180,7 @@ public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
             if(root.left!=null){
                 display4(root.left);
             }
-            System.out.print(root.dato);
+            System.out.println(root.dato);
             if(root.right!=null){
                 display4(root.right);
             }

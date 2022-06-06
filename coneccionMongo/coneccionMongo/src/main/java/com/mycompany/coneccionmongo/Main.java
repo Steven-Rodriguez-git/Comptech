@@ -29,8 +29,20 @@ import org.bson.types.ObjectId;
 import static com.mongodb.client.model.Updates.*;
 import com.mongodb.client.model.Filters.*;
 
+class ReturningValues {
+    public Tree myTree;
+    public nodo_binario root;
+
+    public ReturningValues(Tree myTree, nodo_binario root) {
+        this.myTree = myTree;
+        this.root = root;
+    }
+}
 
 public class Main {
+    
+    private static int cantidadDatosMax =100000;
+    
     public static void main( String[] args ) {
 
         String uri = "mongodb://localhost:27017";
@@ -43,16 +55,30 @@ public class Main {
             Bson filter = eq("capacidad", 838);//solo los que tengan x, no usado por ahora
             //MongoCursor<Document> cursor = collection.find(filter).iterator();
             MongoCursor<Document> cursor = collection.find().iterator(); //itere sobre los datos de mi coleccion
+            
+            ReturningValues conjuntoArbol= ArbolImplementar(database);
+            
+            Tree arbol =  conjuntoArbol.myTree;
+            nodo_binario cabezaTree =  conjuntoArbol.root;
 
-            nodo_binario cabezaTree =  ArbolImplementar(database);
+            nodo_binario pruebaRotacion =arbol.rotacion(cabezaTree);
+            //arbol.display2(pruebaRotacion);//preorden
+            //arbol.display3(pruebaRotacion);//postorden
+            arbol.display4(pruebaRotacion);//inorden
+
+            
             //System.out.println(cabezaTree.dato);
+            //arbol.display2(cabezaTree);//preorden
+            //arbol.display3(cabezaTree);//postorden
+            //arbol.display4(cabezaTree);//inorden
+
             
 //pruebas de velocidad, crear, buscar, eliminar
-            ALCircularImplementar(database);
-            ArrayListImplementar(database);
-            ColaImplementar(database);
-            PilasImplementar(database);
-            LinkedListImplementar(database);
+            //ALCircularImplementar(database);
+            //ArrayListImplementar(database);
+            //ColaImplementar(database);
+            //PilasImplementar(database);
+            //LinkedListImplementar(database);
 
             
 /*            
@@ -68,7 +94,9 @@ public class Main {
     }
 }
     
-    public static nodo_binario ArbolImplementar(MongoDatabase database){
+    
+
+    public static ReturningValues ArbolImplementar(MongoDatabase database){
         Tree myTree = new Tree();
         nodo_binario root = null;
         Comparable data;
@@ -78,7 +106,7 @@ public class Main {
         long beginRead = System.currentTimeMillis();
          try {
                 //while (cursor.hasNext()) {
-                while (contador<100000){
+                while (contador<cantidadDatosMax){
                 root = myTree.insert(root,(Comparable) cursor.next().get("velLectura"));
                 contador++;
          }
@@ -90,11 +118,13 @@ public class Main {
             cursor.close();
         }
         long endRead = System.currentTimeMillis();
-        System.out.println("tiempo usado en la escritura con ARBOL BINARIO con "+100000+" datos: "+ (endRead-beginRead));
-        return root;
+        System.out.println("tiempo usado en la escritura con ARBOL BINARIO con "+cantidadDatosMax+" datos: "+ (endRead-beginRead));
         
-        
+        ReturningValues valores = new ReturningValues(myTree,root);
+        return valores;
     }
+    
+    
     
     public static void ALCircularImplementar(MongoDatabase database){
         //no identifica bien si no le traigo toda la base de datos, mejor hacerlo
@@ -103,7 +133,7 @@ public class Main {
     MongoCursor<Document> respaldo = collection.find().iterator();
     ALCircular alCircular = new ALCircular();//implenento la estructura
 
-    long cantidadDatos = 100000;//cuantos datos quiero ver, tambien lo puedo hacer con un while(cursor.next!=null), para pruebas es mas facil asi
+    int cantidadDatos = cantidadDatosMax;//cuantos datos quiero ver, tambien lo puedo hacer con un while(cursor.next!=null), para pruebas es mas facil asi
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
@@ -119,6 +149,14 @@ public class Main {
     long endSearch = System.currentTimeMillis();
     System.out.println("tiempo usado en la busqueda de ALCIRCULAR para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
    
+    long beginDelete = System.currentTimeMillis();
+    for(int i=0;i<cantidadDatos;i++){
+        alCircular.delete(i);
+    }
+    long endDelete= System.currentTimeMillis();
+    System.out.println("tiempo usado en la elmininacion de ALCIRCULAR para "+cantidadDatos+" datos: "+ (endDelete-beginDelete));
+    
+    
     return;
     }
     
@@ -129,7 +167,7 @@ public class Main {
     MongoCursor<Document> respaldo = collection.find().iterator();
     ArrayList arraylist = new ArrayList();
 
-    long cantidadDatos = 100000;
+    int cantidadDatos = cantidadDatosMax;
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
@@ -162,7 +200,7 @@ public class Main {
     MongoCursor<Document> respaldo = collection.find().iterator();
     Cola cola = new Cola();
 
-    long cantidadDatos = 100000;
+    int cantidadDatos = cantidadDatosMax;
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
@@ -196,7 +234,7 @@ public class Main {
     MongoCursor<Document> respaldo = collection.find().iterator();
     Pilas pila = new Pilas();
 
-    long cantidadDatos = 100000;
+    int cantidadDatos = cantidadDatosMax;
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
@@ -229,7 +267,7 @@ public class Main {
     MongoCursor<Document> respaldo = collection.find().iterator();
     linkedList listaEnlazada = new linkedList();
 
-    long cantidadDatos = 100000;
+    int cantidadDatos = cantidadDatosMax;
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
