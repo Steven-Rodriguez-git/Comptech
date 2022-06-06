@@ -46,7 +46,7 @@ public class ArrayList<T extends Comparable<T>>{
     
     public int search(T dato){
         for(int i = 0; i<cola; i++){
-            if(Arrayd[i] == dato){
+            if(Arrayd[i].compareTo(dato) == 0){
                 return i;
             }
         }
