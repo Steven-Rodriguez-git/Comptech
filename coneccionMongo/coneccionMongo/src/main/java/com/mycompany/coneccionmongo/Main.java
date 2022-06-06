@@ -15,6 +15,9 @@ import com.mycompany.linearDataStructures.Cola;
 import com.mycompany.linearDataStructures.Pilas;
 import com.mycompany.linearDataStructures.Tree;
 import com.mycompany.linearDataStructures.linkedList;
+import com.mycompany.linearDataStructures.nodo_binario;
+import com.mycompany.linearDataStructures.nodo;
+
 
 
 import com.mongodb.client.FindIterable;
@@ -32,22 +35,26 @@ public class Main {
 
         String uri = "mongodb://localhost:27017";
 
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
+        try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
 
-            MongoDatabase database = mongoClient.getDatabase("proyecto");
-            MongoCollection<Document> collection = database.getCollection("almacenamiento");
+            MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
+            MongoCollection<Document> collection = database.getCollection("almacenamiento");//toda la coleccion "almacenamiento", estocomo archivo bson
                                                           
-            Bson filter = eq("capacidad", 838);//solo los que tengan x
+            Bson filter = eq("capacidad", 838);//solo los que tengan x, no usado por ahora
             //MongoCursor<Document> cursor = collection.find(filter).iterator();
-            MongoCursor<Document> cursor = collection.find().iterator();
+            MongoCursor<Document> cursor = collection.find().iterator(); //itere sobre los datos de mi coleccion
+
+            nodo_binario cabezaTree =  ArbolImplementar(database);
+            System.out.println(cabezaTree.dato);
+            //pruebas de velocidad, crear, buscar, eliminar
+            //ALCircularImplementar(database);
+            //ArrayListImplementar(database);
+            //ColaImplementar(database);
+            //PilasImplementar(database);
+            //LinkedListImplementar(database);
 
             
-            ALCircularImplementar(database);
-            ArrayListImplementar(database);
-            ColaImplementar(database);
-            PilasImplementar(database);
-            LinkedListImplementar(database);
-            /*
+/*            
             try {
                 while (cursor.hasNext()) {
                     System.out.println(cursor.next().get("nombre")); //aca lo meto a las estructuras
@@ -55,17 +62,44 @@ public class Main {
             } finally {
                 cursor.close();
             }
-*/    
+*/
 
     }
 }
-    public static void ALCircularImplementar(MongoDatabase database){
+    
+    public static nodo_binario ArbolImplementar(MongoDatabase database){
+        Tree myTree = new Tree();
+        nodo_binario root = null;
+        Comparable data;
+        MongoCollection<Document> collection = database.getCollection("almacenamiento");
+        MongoCursor<Document> cursor = collection.find().iterator();
+   
+        long beginRead = System.currentTimeMillis();
+         try {
+                while (cursor.hasNext()) {
+        root = myTree.insert(root,(Comparable) cursor.next().get("velLectura"));
+            }
+        }
+         catch(Error E){
+         System.out.println(E);
+         }
+         finally {
+            cursor.close();
+        }
+        long endRead = System.currentTimeMillis();
+        System.out.println("tiempo usado en la escritura con ARBOL BINARIO con "+10000+" datos: "+ (endRead-beginRead));
+        return root;
         
+        
+    }
+    
+    public static void ALCircularImplementar(MongoDatabase database){
+        //no identifica bien si no le traigo toda la base de datos, mejor hacerlo
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
-    ALCircular alCircular = new ALCircular();
+    ALCircular alCircular = new ALCircular();//implenento la estructura
 
-    long cantidadDatos = 100000;
+    long cantidadDatos = 100000;//cuantos datos quiero ver, tambien lo puedo hacer con un while(cursor.next!=null), para pruebas es mas facil asi
 
     long beginRead = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
@@ -88,6 +122,7 @@ public class Main {
         
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
+    MongoCursor<Document> respaldo = collection.find().iterator();
     ArrayList arraylist = new ArrayList();
 
     long cantidadDatos = 100000;
@@ -96,6 +131,7 @@ public class Main {
     for(int i=0;i<cantidadDatos;i++){
         arraylist.push((Comparable) cursor.next().get("velLectura")); 
     }
+    System.out.println(respaldo.next().get("velLectura"));
     long endRead = System.currentTimeMillis();
     System.out.println("tiempo usado en la escritura de ARRAYLIST para "+cantidadDatos+" datos: "+ (endRead-beginRead));
             
@@ -136,7 +172,7 @@ public class Main {
         cola.search(j); 
     }
     long endSearch = System.currentTimeMillis();
-    System.out.println("tiempo usado en la busqueda de ARRAYLIST para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
+    System.out.println("tiempo usado en la busqueda de COLA para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
     
     long beginDelete = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){

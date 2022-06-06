@@ -1,6 +1,6 @@
 package com.mycompany.linearDataStructures;
 
-class nodo_binario extends nodo{
+public class nodo_binario extends nodo{
         /*
         ************** REVISION EL 27/05/2022 **********************
         -Esta clase fu� creada para uso de �rboles y circulares.
@@ -10,7 +10,7 @@ class nodo_binario extends nodo{
     
         nodo_binario right;
         nodo_binario left;
-        nodo_binario(Comparable dato){ // constructor para usar gen�ricos
+        public nodo_binario(Comparable dato){ // constructor para usar gen�ricos
             super(dato);        
         }
         

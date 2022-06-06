@@ -1,20 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.linearDataStructures;
+
+import com.mycompany.linearDataStructures.*;
 
 public class Tree <T extends Comparable<T>> {
     nodo_binario root; // todavia no le doy uso, pero pronto.
     
-    Tree(){// no usamos el constructor todavia, pero pronto
+    public Tree(){// no usamos el constructor todavia, pero pronto
         
     }
     
     //---------------------------------------------------------------------------------------------------------    
     // ***************************** OJO ESTE ARBOL NO EST� BALANCEADO **************************************
     // para dar uso del balanceo toca usar el m�todo rotaci�n() para equilibrarlo cada vez que sucede un insert.
+    // Tambi�n se puede a�adir los datos y luego usar rotaci�n() para convertirlo en uno balanceado.
     //---------------------------------------------------------------------------------------------------------
     
     public nodo_binario insert(nodo_binario root, T data){ 
@@ -29,6 +27,26 @@ public class Tree <T extends Comparable<T>> {
                 root.right = insert(root.right,data);
             }
         return root; // devuelvo la misma raiz para no afectar el �rbol y devolverme.
+        }
+    }
+    
+    public boolean search(nodo_binario root, T data){
+        if(root == null){
+            return false;
+        }else{
+            nodo_binario buscado = root;
+            int dato_b; // guarda el resultado de compareTo();
+            while(buscado!=null){   //Se termina si llega al final del �rbol
+                dato_b = buscado.dato.compareTo(data);
+                if(0==dato_b){
+                    return true;
+                }else if(0<dato_b){
+                    buscado = buscado.right;
+                }else{
+                    buscado = buscado.left;
+                }
+            }
+            return false;
         }
     }
     
@@ -110,8 +128,9 @@ public class Tree <T extends Comparable<T>> {
     
     // ******************* EL display() level-order NO TA FUNCIONANDO OJO ************************
     // MOTIVO: parece que nuestra pila noa cepta tipos nodo_binario y no puede "ser casteado" a Comparable
-    public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
-        Cola queu = new Cola();
+/* 
+public void display(nodo_binario root){ // Imprimimos todo por orden de nivel
+    Cola queu = new Cola();
         if(root != null){
             queu.enqueue(root);
             nodo_binario tree ;
@@ -128,6 +147,7 @@ public class Tree <T extends Comparable<T>> {
             }
         }
     }
+*/    
     
     public void display2(nodo_binario root){    // imprimir en pre order
         
