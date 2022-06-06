@@ -45,13 +45,14 @@ public class Main {
             MongoCursor<Document> cursor = collection.find().iterator(); //itere sobre los datos de mi coleccion
 
             nodo_binario cabezaTree =  ArbolImplementar(database);
-            System.out.println(cabezaTree.dato);
-            //pruebas de velocidad, crear, buscar, eliminar
-            //ALCircularImplementar(database);
-            //ArrayListImplementar(database);
-            //ColaImplementar(database);
-            //PilasImplementar(database);
-            //LinkedListImplementar(database);
+            //System.out.println(cabezaTree.dato);
+            
+//pruebas de velocidad, crear, buscar, eliminar
+            ALCircularImplementar(database);
+            ArrayListImplementar(database);
+            ColaImplementar(database);
+            PilasImplementar(database);
+            LinkedListImplementar(database);
 
             
 /*            
@@ -73,12 +74,14 @@ public class Main {
         Comparable data;
         MongoCollection<Document> collection = database.getCollection("almacenamiento");
         MongoCursor<Document> cursor = collection.find().iterator();
-   
+        int contador =0;
         long beginRead = System.currentTimeMillis();
          try {
-                while (cursor.hasNext()) {
-        root = myTree.insert(root,(Comparable) cursor.next().get("velLectura"));
-            }
+                //while (cursor.hasNext()) {
+                while (contador<100000){
+                root = myTree.insert(root,(Comparable) cursor.next().get("velLectura"));
+                contador++;
+         }
         }
          catch(Error E){
          System.out.println(E);
@@ -87,7 +90,7 @@ public class Main {
             cursor.close();
         }
         long endRead = System.currentTimeMillis();
-        System.out.println("tiempo usado en la escritura con ARBOL BINARIO con "+10000+" datos: "+ (endRead-beginRead));
+        System.out.println("tiempo usado en la escritura con ARBOL BINARIO con "+100000+" datos: "+ (endRead-beginRead));
         return root;
         
         
@@ -97,6 +100,7 @@ public class Main {
         //no identifica bien si no le traigo toda la base de datos, mejor hacerlo
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
+    MongoCursor<Document> respaldo = collection.find().iterator();
     ALCircular alCircular = new ALCircular();//implenento la estructura
 
     long cantidadDatos = 100000;//cuantos datos quiero ver, tambien lo puedo hacer con un while(cursor.next!=null), para pruebas es mas facil asi
@@ -110,7 +114,7 @@ public class Main {
             
     long beginSearch = System.currentTimeMillis();
     for(int j=0;j<cantidadDatos;j++){
-        alCircular.search(j); 
+        alCircular.search( (Comparable) respaldo.next().get("velLectura")); 
     }
     long endSearch = System.currentTimeMillis();
     System.out.println("tiempo usado en la busqueda de ALCIRCULAR para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
@@ -131,13 +135,12 @@ public class Main {
     for(int i=0;i<cantidadDatos;i++){
         arraylist.push((Comparable) cursor.next().get("velLectura")); 
     }
-    System.out.println(respaldo.next().get("velLectura"));
     long endRead = System.currentTimeMillis();
     System.out.println("tiempo usado en la escritura de ARRAYLIST para "+cantidadDatos+" datos: "+ (endRead-beginRead));
             
     long beginSearch = System.currentTimeMillis();
     for(int j=0;j<cantidadDatos;j++){
-        arraylist.Search(j); 
+        arraylist.search((Comparable) respaldo.next().get("velLectura")); 
     }
     long endSearch = System.currentTimeMillis();
     System.out.println("tiempo usado en la busqueda de ARRAYLIST para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
@@ -156,6 +159,7 @@ public class Main {
         
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
+    MongoCursor<Document> respaldo = collection.find().iterator();
     Cola cola = new Cola();
 
     long cantidadDatos = 100000;
@@ -169,7 +173,7 @@ public class Main {
 
     long beginSearch = System.currentTimeMillis();
     for(int j=0;j<cantidadDatos;j++){
-        cola.search(j); 
+        cola.search((Comparable) respaldo.next().get("velLectura")); 
     }
     long endSearch = System.currentTimeMillis();
     System.out.println("tiempo usado en la busqueda de COLA para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
@@ -189,6 +193,7 @@ public class Main {
         
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
+    MongoCursor<Document> respaldo = collection.find().iterator();
     Pilas pila = new Pilas();
 
     long cantidadDatos = 100000;
@@ -202,7 +207,7 @@ public class Main {
             
     long beginSearch = System.currentTimeMillis();
     for(int j=0;j<cantidadDatos;j++){
-        pila.Search(j); 
+        pila.Search((Comparable) respaldo.next().get("velLectura")); 
     }
     long endSearch = System.currentTimeMillis();
     System.out.println("tiempo usado en la busqueda de PILA para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
@@ -221,6 +226,7 @@ public class Main {
         
     MongoCollection<Document> collection = database.getCollection("almacenamiento");
     MongoCursor<Document> cursor = collection.find().iterator();
+    MongoCursor<Document> respaldo = collection.find().iterator();
     linkedList listaEnlazada = new linkedList();
 
     long cantidadDatos = 100000;
@@ -231,7 +237,14 @@ public class Main {
     }
     long endRead = System.currentTimeMillis();
     System.out.println("tiempo usado en la escritura de LINKEDLIST para "+cantidadDatos+" datos: "+ (endRead-beginRead));
-            
+
+    long beginSearch = System.currentTimeMillis();
+    for(int j=0;j<cantidadDatos;j++){
+        listaEnlazada.search((Comparable) respaldo.next().get("velLectura")); 
+    }
+    long endSearch = System.currentTimeMillis();
+    System.out.println("tiempo usado en la busqueda de LINKEDLIST para "+cantidadDatos+" datos: "+ (endSearch-beginSearch));
+    
     long beginDelete = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
         listaEnlazada.popFront(); 
