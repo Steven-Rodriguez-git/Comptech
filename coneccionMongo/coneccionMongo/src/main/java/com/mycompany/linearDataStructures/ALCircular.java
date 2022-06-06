@@ -83,4 +83,20 @@ public class ALCircular<T extends Comparable<T>> {
         }
         return -1;
     }
+    
+    public T delete(int index){
+        if(cabeza!=null){
+            nodo buscado = cabeza;
+            for(int i =0; i<index-1; i++){
+                if(buscado.siguiente!=null){
+                    buscado = buscado.siguiente;
+                }
+            }
+            nodo despues = buscado.siguiente.siguiente;
+            if(cola == buscado.siguiente){
+                cola = despues;
+            }
+            buscado.siguiente=despues;
+        }
+    }
 }
