@@ -82,6 +82,16 @@ public class linkedList {  //Es una LinkedList pero sin cola  y 1 solo enlace os
         //ComparableODO
     }
 
+    public boolean search(Comparable data){
+        nodo cabeza = head;
+        while(cabeza!=null){
+            if(data==head.dato){
+                return true;
+            }
+            cabeza = cabeza.siguiente;
+        }
+        return false;
+    }
     /*
     public Comparable getBack (nodo head){
     nodo start = head;

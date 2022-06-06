@@ -1,5 +1,5 @@
+package com.mycompany.linearDataStructures;
 
-package javaapplication8;
 
 public class Cola<T extends Comparable<T>> {
     /*
@@ -63,9 +63,11 @@ public class Cola<T extends Comparable<T>> {
         nodo buscar = cabeza;
         int contador= 0;
         while(buscar!=null){
-            if(0 == buscar.dato.compareTo(dato)){
+            if(dato==buscar.dato){
+            //if(0 == buscar.dato.compareTo(dato)){
                 return contador;
             }
+            buscar = buscar.siguiente;
             contador++;
         }
         return -1;

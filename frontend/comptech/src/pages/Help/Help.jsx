@@ -14,13 +14,20 @@ return(
     <Box
         sx={{
         width: '100%',
-        height: '7%',
+        height: '30%',
         display: 'flex',
         backgroundColor: '#455a64',
         alignItems:"center"
         }}>
         <Box>
+
+        <Box
+        sx={{
+          width:'100%'
+        
+        }}>
       <ImagenAyuda></ImagenAyuda>
+        </Box>
         </Box>
         <Box sx={{
         width: '100%',
@@ -31,7 +38,7 @@ return(
       <Ayudas ></Ayudas>
     </Box>
   </Box>  
-  
+
     
     
 <Computadoras/>
