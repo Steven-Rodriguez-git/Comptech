@@ -1,4 +1,4 @@
-package com.mycompany.coneccionmongo;
+    package com.mycompany.coneccionmongo;
 
 import com.mongodb.client.*;
 import com.mongodb.client.MongoClients;
