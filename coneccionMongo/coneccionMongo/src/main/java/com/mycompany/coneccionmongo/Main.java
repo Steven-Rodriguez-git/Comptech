@@ -50,26 +50,31 @@ public class Main {
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
+            arbolesPorComponente prueba = new arbolesPorComponente(database);
+            
+            Tree arbol =  prueba.almacenamiento_capacidad.myTree;
+            nodo_binario cabezaTree =  prueba.almacenamiento_capacidad.root;
+
+            arbol.display2(cabezaTree);
                 //MongoCollection<Document> collection = database.getCollection("almacenamiento");//toda la coleccion "almacenamiento", estocomo archivo bson
                 //Bson filter = eq("capacidad", 838);//solo los que tengan x, no usado por ahora
                 //MongoCursor<Document> cursor = collection.find(filter).iterator();
                 //MongoCursor<Document> cursor = collection.find().iterator(); //itere sobre los datos de mi coleccion
-            <tipo> prueba = new <tipo> arbolesPorComponente(database);
-            //prueba.creacionArboles();
-            ReturningValues conjuntoArbol= ArbolImplementar(database);//cree el arbol
-            Tree arbol =  conjuntoArbol.myTree;
-            nodo_binario cabezaTree =  conjuntoArbol.root;
+                //prueba.creacionArboles();
+                //ReturningValues conjuntoArbol= ArbolImplementar(database);//cree el arbol
+                //Tree arbol =  conjuntoArbol.myTree;
+                //nodo_binario cabezaTree =  conjuntoArbol.root;
 
-            nodo_binario pruebaRotacion =arbol.rotacion(cabezaTree);
-            //arbol.display2(pruebaRotacion);//preorden
-            //arbol.display3(pruebaRotacion);//postorden
-            //arbol.display4(pruebaRotacion);//inorden
-            System.out.println(arbol.search(cabezaTree,4994));
-            
-            //System.out.println(cabezaTree.dato);
-            //arbol.display2(cabezaTree);//preorden
-            //arbol.display3(cabezaTree);//postorden
-            //arbol.display4(cabezaTree);//inorden
+                //nodo_binario pruebaRotacion =arbol.rotacion(cabezaTree);
+                //arbol.display2(pruebaRotacion);//preorden
+                //arbol.display3(pruebaRotacion);//postorden
+                //arbol.display4(pruebaRotacion);//inorden
+                //System.out.println(arbol.search(cabezaTree,4994));
+
+                //System.out.println(cabezaTree.dato);
+                //arbol.display2(cabezaTree);//preorden
+                //arbol.display3(cabezaTree);//postorden
+                //arbol.display4(cabezaTree);//inorden
 
             
 //pruebas de velocidad, crear, buscar, eliminar
