@@ -52,6 +52,10 @@ public class Main {
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
             arbolesPorComponente prueba = new arbolesPorComponente(database);//cree TODO arbol
             
+            
+            prueba.board_compatibilidadArqRam.myTree.display2(prueba.board_compatibilidadArqRam.root);//postorden
+
+            
             //Tree arbol =  prueba.almacenamiento_capacidad.myTree;
             //nodo_binario cabezaTree =  prueba.almacenamiento_capacidad.root;
 
