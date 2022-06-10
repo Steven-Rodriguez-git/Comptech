@@ -97,15 +97,15 @@ public class arbolesPorComponente {
         this.board_marca = creacionArboles(coleccion[1], board[5]);
         this.board_precio = creacionArboles( coleccion[1], board[6]);
         
-        this.grafica_memoria = creacionArboles(coleccion[2], board[0]);
-        this.grafica_arquitectura = creacionArboles( coleccion[2], board[1]);
-        this.grafica_anchoBanda = creacionArboles( coleccion[2], board[2]);
-        this.grafica_frecuenciaBase = creacionArboles( coleccion[2], board[3]);
-        this.grafica_frecuenciaOc = creacionArboles( coleccion[2], board[4]);
-        this.grafica_consumo = creacionArboles( coleccion[2], board[5]);
-        this.grafica_computo = creacionArboles( coleccion[2], board[6]);
-        this.grafica_marca = creacionArboles( coleccion[2], board[7]);
-        this.grafica_precio = creacionArboles( coleccion[2], board[8]);
+        this.grafica_memoria = creacionArboles(coleccion[2], grafica[0]);
+        this.grafica_arquitectura = creacionArboles( coleccion[2], grafica[1]);
+        this.grafica_anchoBanda = creacionArboles( coleccion[2], grafica[2]);
+        this.grafica_frecuenciaBase = creacionArboles( coleccion[2], grafica[3]);
+        this.grafica_frecuenciaOc = creacionArboles( coleccion[2], grafica[4]);
+        this.grafica_consumo = creacionArboles( coleccion[2], grafica[5]);
+        this.grafica_computo = creacionArboles( coleccion[2], grafica[6]);
+        this.grafica_marca = creacionArboles( coleccion[2], grafica[7]);
+        this.grafica_precio = creacionArboles( coleccion[2], grafica[8]);
 
         this.procesador_generacion = creacionArboles( coleccion[3], procesador[0]);
         this.procesador_nucleos = creacionArboles( coleccion[3], procesador[1]);
