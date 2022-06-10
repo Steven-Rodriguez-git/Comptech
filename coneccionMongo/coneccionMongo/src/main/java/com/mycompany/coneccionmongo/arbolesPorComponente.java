@@ -68,7 +68,7 @@ public class arbolesPorComponente {
     public retornaArbol ram_precio;
 
     public String[] coleccion = {"almacenamiento","board","grafica","procesador","ram"};
-    public String[] almacenamiento= {"capacidad","tipo","velLectura","velLectura","marca","precio"};
+    public String[] almacenamiento= {"capacidad","tipo","velLectura","velEscritura","marca","precio"};
     public String[] board= {"chipset","socket","compatibilidadArqRam","maxRam","puertos","marca","precio"};
     public String[] grafica= {"memoria","arquitectura","anchoBanda","frecuenciaBase","frecuenciaOc","consumo","computo","marca","precio"};
     public String[] procesador= {"generacion","nucleos","hilos","frecuencia","cache","consumo","graficaIntegrada","marca","precio"};
@@ -86,8 +86,7 @@ public class arbolesPorComponente {
         this.almacenamiento_velLectura = creacionArboles(coleccion[0],almacenamiento[2]);
         this.almacenamiento_velEscritura = creacionArboles(coleccion[0],almacenamiento[3]);
         this.almacenamiento_marca = creacionArboles(coleccion[0],almacenamiento[4]);
-        this.almacenamiento_precio = creacionArboles(coleccion[0],almacenamiento[5]);
-       
+        this.almacenamiento_precio = creacionArboles(coleccion[0],almacenamiento[5]);       
         
         this.board_chipset = creacionArboles(coleccion[1], board[0]);
         this.board_socket = creacionArboles( coleccion[1], board[1]);
@@ -146,7 +145,8 @@ public class arbolesPorComponente {
         MongoCollection<Document> collection = database.getCollection(coleccion);
         MongoCursor<Document> cursor = collection.find().iterator();
         try {
-            while (cursor.hasNext()) {
+            //while (cursor.hasNext()) {
+             for(int i=0;i<1000;i++){
                 root = myTree.insert(root,(Comparable) cursor.next().get(caracteristica));
          }
         }
