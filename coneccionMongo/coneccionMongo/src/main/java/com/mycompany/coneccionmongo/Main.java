@@ -50,12 +50,12 @@ public class Main {
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
-            arbolesPorComponente prueba = new arbolesPorComponente(database);
+            arbolesPorComponente prueba = new arbolesPorComponente(database);//cree TODO arbol
             
-            Tree arbol =  prueba.almacenamiento_capacidad.myTree;
-            nodo_binario cabezaTree =  prueba.almacenamiento_capacidad.root;
+            //Tree arbol =  prueba.almacenamiento_capacidad.myTree;
+            //nodo_binario cabezaTree =  prueba.almacenamiento_capacidad.root;
 
-            arbol.display2(cabezaTree);
+            //arbol.display2(cabezaTree);
                 //MongoCollection<Document> collection = database.getCollection("almacenamiento");//toda la coleccion "almacenamiento", estocomo archivo bson
                 //Bson filter = eq("capacidad", 838);//solo los que tengan x, no usado por ahora
                 //MongoCursor<Document> cursor = collection.find(filter).iterator();
@@ -104,14 +104,14 @@ public class Main {
         Tree myTree = new Tree();
         nodo_binario root = null;
         Comparable data;
-        MongoCollection<Document> collection = database.getCollection("almacenamiento");
+        MongoCollection<Document> collection = database.getCollection("board");
         MongoCursor<Document> cursor = collection.find().iterator();
         int contador =0;
         long beginRead = System.currentTimeMillis();
          try {
                 //while (cursor.hasNext()) {
                 while (contador<cantidadDatosMax){
-                root = myTree.insert(root,(Comparable) cursor.next().get("velLectura"));
+                root = myTree.insert(root,(Comparable) cursor.next().get("chipset"));
                 contador++;
          }
         }

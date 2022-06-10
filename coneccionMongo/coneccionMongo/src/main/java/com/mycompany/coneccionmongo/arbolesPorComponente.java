@@ -67,64 +67,67 @@ public class arbolesPorComponente {
     public retornaArbol ram_marca;
     public retornaArbol ram_precio;
 
-    public String[] coleccion = {"almacenamiento","board","grafica","procesador","ram","marca","precio"};
+    public String[] coleccion = {"almacenamiento","board","grafica","procesador","ram"};
     public String[] almacenamiento= {"capacidad","tipo","velLectura","velLectura","marca","precio"};
-    public String[] board= {"chispset","socket","compatibilidadArqRam","maxRam","puertos","marca","precio"};
+    public String[] board= {"chipset","socket","compatibilidadArqRam","maxRam","puertos","marca","precio"};
     public String[] grafica= {"memoria","arquitectura","anchoBanda","frecuenciaBase","frecuenciaOc","consumo","computo","marca","precio"};
     public String[] procesador= {"generacion","nucleos","hilos","frecuencia","cache","consumo","graficaIntegrada","marca","precio"};
     public String[] ram= {"capacidad","arquitectura","velocidad","tasaTransferencia","marca","precio"};
 
-
+    public MongoDatabase database;
 
 
 
     public arbolesPorComponente(MongoDatabase database){
-        this.almacenamiento_capacidad = creacionArboles(database,coleccion[0],almacenamiento[0]);
-        this.almacenamiento_tipo = creacionArboles(database,coleccion[0],almacenamiento[1]);
-        this.almacenamiento_velLectura = creacionArboles(database,coleccion[0],almacenamiento[2]);
-        this.almacenamiento_velEscritura = creacionArboles(database,coleccion[0],almacenamiento[3]);
-        this.almacenamiento_marca = creacionArboles(database,coleccion[0],almacenamiento[4]);
-        this.almacenamiento_precio = creacionArboles(database,coleccion[0],almacenamiento[5]);
+       this.database = database;
         
-        this.board_chipset = creacionArboles(database, coleccion[1], board[0]);
-        this.board_socket = creacionArboles(database, coleccion[1], board[1]);
-        this.board_compatibilidadArqRam = creacionArboles(database, coleccion[1], board[2]);
-        this.board_maxRam = creacionArboles(database, coleccion[1], board[3]);
-        this.board_puertos = creacionArboles(database, coleccion[1], board[4]);
-        this.board_marca = creacionArboles(database, coleccion[1], board[5]);
-        this.board_precio = creacionArboles(database, coleccion[1], board[6]);
+        this.almacenamiento_capacidad = creacionArboles(coleccion[0],almacenamiento[0]);
+        this.almacenamiento_tipo = creacionArboles(coleccion[0],almacenamiento[1]);
+        this.almacenamiento_velLectura = creacionArboles(coleccion[0],almacenamiento[2]);
+        this.almacenamiento_velEscritura = creacionArboles(coleccion[0],almacenamiento[3]);
+        this.almacenamiento_marca = creacionArboles(coleccion[0],almacenamiento[4]);
+        this.almacenamiento_precio = creacionArboles(coleccion[0],almacenamiento[5]);
+       
         
-        this.grafica_memoria = creacionArboles(database, coleccion[2], board[0]);
-        this.grafica_arquitectura = creacionArboles(database, coleccion[2], board[1]);
-        this.grafica_anchoBanda = creacionArboles(database, coleccion[2], board[2]);
-        this.grafica_frecuenciaBase = creacionArboles(database, coleccion[2], board[3]);
-        this.grafica_frecuenciaOc = creacionArboles(database, coleccion[2], board[4]);
-        this.grafica_consumo = creacionArboles(database, coleccion[2], board[5]);
-        this.grafica_computo = creacionArboles(database, coleccion[2], board[6]);
-        this.grafica_marca = creacionArboles(database, coleccion[2], board[7]);
-        this.grafica_precio = creacionArboles(database, coleccion[2], board[8]);
+        this.board_chipset = creacionArboles(coleccion[1], board[0]);
+        this.board_socket = creacionArboles( coleccion[1], board[1]);
+        this.board_compatibilidadArqRam = creacionArboles( coleccion[1], board[2]);
+        this.board_maxRam = creacionArboles(coleccion[1], board[3]);
+        this.board_puertos = creacionArboles(coleccion[1], board[4]);
+        this.board_marca = creacionArboles(coleccion[1], board[5]);
+        this.board_precio = creacionArboles( coleccion[1], board[6]);
+        
+        this.grafica_memoria = creacionArboles(coleccion[2], board[0]);
+        this.grafica_arquitectura = creacionArboles( coleccion[2], board[1]);
+        this.grafica_anchoBanda = creacionArboles( coleccion[2], board[2]);
+        this.grafica_frecuenciaBase = creacionArboles( coleccion[2], board[3]);
+        this.grafica_frecuenciaOc = creacionArboles( coleccion[2], board[4]);
+        this.grafica_consumo = creacionArboles( coleccion[2], board[5]);
+        this.grafica_computo = creacionArboles( coleccion[2], board[6]);
+        this.grafica_marca = creacionArboles( coleccion[2], board[7]);
+        this.grafica_precio = creacionArboles( coleccion[2], board[8]);
 
-        this.procesador_generacion = creacionArboles(database, coleccion[3], procesador[0]);
-        this.procesador_nucleos = creacionArboles(database, coleccion[3], procesador[1]);
-        this.procesador_hilos = creacionArboles(database, coleccion[3], procesador[2]);
-        this.procesador_frecuencia = creacionArboles(database, coleccion[3], procesador[3]);
-        this.procesador_cache = creacionArboles(database, coleccion[3], procesador[4]);
-        this.procesador_consumo = creacionArboles(database, coleccion[3], procesador[5]);
-        this.procesador_graficaIntegrada = creacionArboles(database, coleccion[3], procesador[6]);
-        this.procesador_marca = creacionArboles(database, coleccion[3], procesador[7]);
-        this.procesador_precio = creacionArboles(database, coleccion[3], procesador[8]);
+        this.procesador_generacion = creacionArboles( coleccion[3], procesador[0]);
+        this.procesador_nucleos = creacionArboles( coleccion[3], procesador[1]);
+        this.procesador_hilos = creacionArboles( coleccion[3], procesador[2]);
+        this.procesador_frecuencia = creacionArboles( coleccion[3], procesador[3]);
+        this.procesador_cache = creacionArboles( coleccion[3], procesador[4]);
+        this.procesador_consumo = creacionArboles( coleccion[3], procesador[5]);
+        this.procesador_graficaIntegrada = creacionArboles( coleccion[3], procesador[6]);
+        this.procesador_marca = creacionArboles( coleccion[3], procesador[7]);
+        this.procesador_precio = creacionArboles( coleccion[3], procesador[8]);
 
-        this.ram_capacidad = creacionArboles(database, coleccion[4], ram[0]);
-        this.ram_arquitectura = creacionArboles(database, coleccion[4], ram[1]);
-        this.ram_velocidad = creacionArboles(database, coleccion[4], ram[2]);
-        this.ram_tasaTransferencia = creacionArboles(database, coleccion[4], ram[3]);
-        this.ram_marca = creacionArboles(database, coleccion[4], ram[4]);
-        this.ram_precio = creacionArboles(database, coleccion[4], ram[5]);
+        this.ram_capacidad = creacionArboles( coleccion[4], ram[0]);
+        this.ram_arquitectura = creacionArboles( coleccion[4], ram[1]);
+        this.ram_velocidad = creacionArboles( coleccion[4], ram[2]);
+        this.ram_tasaTransferencia = creacionArboles( coleccion[4], ram[3]);
+        this.ram_marca = creacionArboles( coleccion[4], ram[4]);
+        this.ram_precio = creacionArboles( coleccion[4], ram[5]);
         
     }
     
-    public static retornaArbol creacionArboles(MongoDatabase database, String coleccion, String caracteristica){
-        retornaArbol conjuntoArbol= ArbolImplementar(database,coleccion,caracteristica);//cree el arbol
+    public retornaArbol creacionArboles(String coleccion, String caracteristica){
+        retornaArbol conjuntoArbol= ArbolImplementar(coleccion,caracteristica);//cree el arbol
         Tree arbol =  conjuntoArbol.myTree;
         nodo_binario cabezaTree =  conjuntoArbol.root;
 
@@ -132,7 +135,11 @@ public class arbolesPorComponente {
 
     }
 
-    public static retornaArbol ArbolImplementar(MongoDatabase database,String coleccion, String caracteristica){
+    public retornaArbol ArbolImplementar(String coleccion, String caracteristica){
+        System.out.println(coleccion);
+        System.out.println(caracteristica);
+
+        database = this.database;
         Tree myTree = new Tree();
         nodo_binario root = null;
         Comparable data;
