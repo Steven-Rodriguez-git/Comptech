@@ -38,9 +38,10 @@ public class Tree <T extends Comparable<T>> {
             int dato_b; // guarda el resultado de compareTo();
             while(buscado!=null){   //Se termina si llega al final del �rbol
                 dato_b = buscado.dato.compareTo(data);
+                //System.out.println(buscado.dato);
                 if(0==dato_b){
                     return true;
-                }else if(0<dato_b){
+                }else if(dato_b<0){
                     buscado = buscado.right;
                 }else{
                     buscado = buscado.left;
