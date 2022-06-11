@@ -81,9 +81,10 @@ public class arbolesPorComponente {
     public arbolesPorComponente(MongoDatabase database){
        this.database = database;
         
-        this.almacenamiento_capacidad = creacionArboles(coleccion[0],almacenamiento[0]);
-        this.almacenamiento_tipo = creacionArboles(coleccion[0],almacenamiento[1]);
+        //this.almacenamiento_capacidad = creacionArboles(coleccion[0],almacenamiento[0]);
+        //this.almacenamiento_tipo = creacionArboles(coleccion[0],almacenamiento[1]);
         this.almacenamiento_velLectura = creacionArboles(coleccion[0],almacenamiento[2]);
+/*        
         this.almacenamiento_velEscritura = creacionArboles(coleccion[0],almacenamiento[3]);
         this.almacenamiento_marca = creacionArboles(coleccion[0],almacenamiento[4]);
         this.almacenamiento_precio = creacionArboles(coleccion[0],almacenamiento[5]);       
@@ -122,7 +123,8 @@ public class arbolesPorComponente {
         this.ram_tasaTransferencia = creacionArboles( coleccion[4], ram[3]);
         this.ram_marca = creacionArboles( coleccion[4], ram[4]);
         this.ram_precio = creacionArboles( coleccion[4], ram[5]);
-        
+*/ 
+
     }
     
     public retornaArbol creacionArboles(String coleccion, String caracteristica){
@@ -146,7 +148,7 @@ public class arbolesPorComponente {
         MongoCursor<Document> cursor = collection.find().iterator();
         try {
             //while (cursor.hasNext()) {
-             for(int i=0;i<20;i++){
+             for(int i=0;i<10000;i++){
                 root = myTree.insert(root,(Comparable) cursor.next().get(caracteristica));
          }
         }

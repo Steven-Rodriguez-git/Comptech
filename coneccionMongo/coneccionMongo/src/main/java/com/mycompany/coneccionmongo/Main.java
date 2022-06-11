@@ -61,9 +61,12 @@ public class Main {
             //arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
 //TOCA ORDENAR TODO ARBOL EN EL OTRO ARCHIVO            
 //System.out.println(arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315));
-            System.out.println(arboles.almacenamiento_velLectura.myTree.mayor(pruebaBalanceo, 4315));
+            nodo_binario mayores = arboles.almacenamiento_velLectura.myTree.mayor(pruebaBalanceo, 4315);
+            arboles.almacenamiento_velLectura.myTree.display4(mayores);
+            System.out.println("BUSCAME");
+            nodo_binario menores = arboles.almacenamiento_velLectura.myTree.menor(pruebaBalanceo, 4315);
+            arboles.almacenamiento_velLectura.myTree.display4(menores);
 
-    
 // mayores pruebas        
             /*
             nodo_binario mayoresAlmacenamientoTipo = arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 1300);

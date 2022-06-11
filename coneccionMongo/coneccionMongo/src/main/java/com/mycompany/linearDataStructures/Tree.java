@@ -40,7 +40,31 @@ public class Tree <T extends Comparable<T>> {
         
         
     }
-    
+    public nodo_binario menor(nodo_binario root, T data){
+    if(root == null){
+            return null;
+        }else{
+            nodo_binario buscado = root;
+            int dato_b; // guarda el resultado de compareTo();
+            while(buscado!=null){   //Se termina si llega al final del �rbol
+                dato_b = buscado.dato.compareTo(data);
+                //System.out.println(buscado.dato);
+                if(0==dato_b){
+                    if(buscado.right!=null){//por si es una hoja
+                        return buscado.left;
+                    }
+                    return buscado;
+                }else if(dato_b<0){
+                    buscado = buscado.right;
+                }else{
+                    buscado = buscado.left;
+                }
+            }
+            return null;
+        }
+        
+    }
+
     public nodo_binario mayor(nodo_binario root, T data){
     if(root == null){
             return null;
@@ -51,7 +75,10 @@ public class Tree <T extends Comparable<T>> {
                 dato_b = buscado.dato.compareTo(data);
                 //System.out.println(buscado.dato);
                 if(0==dato_b){
-                    return buscado.right;
+                    if(buscado.right!=null){//por si es una hoja
+                        return buscado.right;
+                    }
+                    return buscado;
                 }else if(dato_b<0){
                     buscado = buscado.right;
                 }else{
