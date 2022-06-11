@@ -99,15 +99,12 @@ public class Tree <T extends Comparable<T>> {
             while(buscado!=null){   //Se termina si llega al final del �rbol
                 dato_b = buscado.dato.compareTo(data);
                 //System.out.println(buscado.dato);
-                System.out.println("en el arbol= "+buscado.dato);
-                System.out.println("mio= "+data);
-
                 if(0==dato_b){
                     return true;
                 }else if(dato_b<0){
-                    buscado = buscado.right;System.out.println("derecha");
+                    buscado = buscado.right;
                 }else{
-                    buscado = buscado.left;System.out.println("izquierda");
+                    buscado = buscado.left;
                 }
             }
             return false;

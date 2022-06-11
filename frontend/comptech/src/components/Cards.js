@@ -12,7 +12,7 @@ const Cards = () => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button  target="_blank" href="https://www.amazon.com/-/es/GeForce-24G-P5-4985-KR-trasera-electr%C3%B3nica-gratuita/dp/B09W4SN2M7/ref=sr_1_2?keywords=3090ti&qid=1654918206&sprefix=3090t%2Cspecialty-aps%2C106&sr=8-2" variant="primary">Comprar</Button>
         </Card.Body>
       </Card>
     </div>

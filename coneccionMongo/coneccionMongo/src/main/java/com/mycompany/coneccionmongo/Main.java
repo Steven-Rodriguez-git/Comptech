@@ -1,4 +1,4 @@
-    package com.mycompany.coneccionmongo;
+package com.mycompany.coneccionmongo;
 
 import com.mongodb.client.*;
 import com.mongodb.client.MongoClients;
@@ -51,7 +51,7 @@ public class Main {
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
             arbolesPorComponente arboles = new arbolesPorComponente(database);//cree TODO arbol
-/*            
+            
             arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
             System.out.println("INICIO");
             nodo_binario mayores = arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315);
@@ -59,7 +59,8 @@ public class Main {
             System.out.println("BUSCAME");
             nodo_binario menores = arboles.almacenamiento_velLectura.myTree.menor(arboles.almacenamiento_velLectura.root, 4315);
             arboles.almacenamiento_velLectura.myTree.display4(menores);
-*/
+
+/*            
             arboles.procesador_marca.myTree.display4(arboles.procesador_marca.root);
             System.out.println("INICIO");
             nodo_binario mayores = arboles.procesador_marca.myTree.mayor(arboles.procesador_marca.root, "nvidiaf4499n5@10");
@@ -67,7 +68,7 @@ public class Main {
             System.out.println("BUSCAME");
             nodo_binario menores = arboles.procesador_marca.myTree.menor(arboles.procesador_marca.root, "nvidiaf4499n5@10");
             arboles.procesador_marca.myTree.display4(menores);
-
+*/
             
             
             
