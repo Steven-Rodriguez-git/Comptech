@@ -1,14 +1,11 @@
-
 import CardsComponents from "../../components/CardsComponents.js";
-import MainImage from "../../components/MainImage.js";
 
-const Home = ()=>{
+const AllComponents = ()=>{
 return(
     <div>
-    <MainImage/>
     <CardsComponents/>
     </div>
 );
 };
 
-export default Home;
+export default AllComponents;
