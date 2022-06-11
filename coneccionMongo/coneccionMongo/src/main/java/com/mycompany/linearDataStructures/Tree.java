@@ -30,6 +30,39 @@ public class Tree <T extends Comparable<T>> {
         }
     }
     
+    public void pruebaComparable(nodo_binario root){
+        System.out.println("???????????????????????????????????????????????/");
+        nodo_binario copia = root;
+        while(copia!=null){
+            System.out.println(copia.left.dato);
+            copia = copia.left;
+        }
+        
+        
+    }
+    
+    public nodo_binario mayor(nodo_binario root, T data){
+    if(root == null){
+            return null;
+        }else{
+            nodo_binario buscado = root;
+            int dato_b; // guarda el resultado de compareTo();
+            while(buscado!=null){   //Se termina si llega al final del �rbol
+                dato_b = buscado.dato.compareTo(data);
+                //System.out.println(buscado.dato);
+                if(0==dato_b){
+                    return buscado.right;
+                }else if(dato_b<0){
+                    buscado = buscado.right;
+                }else{
+                    buscado = buscado.left;
+                }
+            }
+            return null;
+        }
+        
+    }
+    
     public boolean search(nodo_binario root, T data){
         if(root == null){
             return false;
@@ -39,12 +72,15 @@ public class Tree <T extends Comparable<T>> {
             while(buscado!=null){   //Se termina si llega al final del �rbol
                 dato_b = buscado.dato.compareTo(data);
                 //System.out.println(buscado.dato);
+                System.out.println("en el arbol= "+buscado.dato);
+                System.out.println("mio= "+data);
+
                 if(0==dato_b){
                     return true;
                 }else if(dato_b<0){
-                    buscado = buscado.right;
+                    buscado = buscado.right;System.out.println("derecha");
                 }else{
-                    buscado = buscado.left;
+                    buscado = buscado.left;System.out.println("izquierda");
                 }
             }
             return false;

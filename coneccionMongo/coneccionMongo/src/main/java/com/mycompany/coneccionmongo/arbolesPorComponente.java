@@ -129,14 +129,14 @@ public class arbolesPorComponente {
         retornaArbol conjuntoArbol= ArbolImplementar(coleccion,caracteristica);//cree el arbol
         Tree arbol =  conjuntoArbol.myTree;
         nodo_binario cabezaTree =  conjuntoArbol.root;
-
+        
         return conjuntoArbol;
 
     }
 
     public retornaArbol ArbolImplementar(String coleccion, String caracteristica){
-        System.out.println(coleccion);
-        System.out.println(caracteristica);
+        //System.out.println(coleccion);
+        //System.out.println(caracteristica);
 
         database = this.database;
         Tree myTree = new Tree();
@@ -146,7 +146,7 @@ public class arbolesPorComponente {
         MongoCursor<Document> cursor = collection.find().iterator();
         try {
             //while (cursor.hasNext()) {
-             for(int i=0;i<1000;i++){
+             for(int i=0;i<20;i++){
                 root = myTree.insert(root,(Comparable) cursor.next().get(caracteristica));
          }
         }

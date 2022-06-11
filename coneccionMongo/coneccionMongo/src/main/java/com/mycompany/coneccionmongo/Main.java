@@ -50,11 +50,29 @@ public class Main {
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
-            arbolesPorComponente prueba = new arbolesPorComponente(database);//cree TODO arbol
+            arbolesPorComponente arboles = new arbolesPorComponente(database);//cree TODO arbol
+                
             
-            
-            prueba.board_compatibilidadArqRam.myTree.display2(prueba.board_compatibilidadArqRam.root);//postorden
+            //arboles.almacenamiento_velLectura.myTree.pruebaComparable(arboles.almacenamiento_velLectura.root);
+            // balanceo
+            //parece que el balanceo si sirve
+            nodo_binario pruebaBalanceo = arboles.almacenamiento_velLectura.myTree.rotacion(arboles.almacenamiento_velLectura.root);
+            //arboles.almacenamiento_velLectura.myTree.display4(pruebaBalanceo);
+            //arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
+//TOCA ORDENAR TODO ARBOL EN EL OTRO ARCHIVO            
+//System.out.println(arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315));
+            System.out.println(arboles.almacenamiento_velLectura.myTree.mayor(pruebaBalanceo, 4315));
 
+    
+// mayores pruebas        
+            /*
+            nodo_binario mayoresAlmacenamientoTipo = arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 1300);
+            System.out.println(mayoresAlmacenamientoTipo);
+            System.out.println(arboles.almacenamiento_velLectura.root);
+//SI NO ESTA BALANCEADO PARA QUE LE SIRVE SABER QUIEN ESTA A LA DERECHA
+            arboles.almacenamiento_velLectura.myTree.display3(mayoresAlmacenamientoTipo);
+            */
+            
             
             //Tree arbol =  prueba.almacenamiento_capacidad.myTree;
             //nodo_binario cabezaTree =  prueba.almacenamiento_capacidad.root;
