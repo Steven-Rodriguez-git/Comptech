@@ -51,21 +51,33 @@ public class Main {
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
             arbolesPorComponente arboles = new arbolesPorComponente(database);//cree TODO arbol
-                
+            
+            arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
+            System.out.println("INICIO");
+            nodo_binario mayores = arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315);
+            arboles.almacenamiento_velLectura.myTree.display4(mayores);
+            System.out.println("BUSCAME");
+            nodo_binario menores = arboles.almacenamiento_velLectura.myTree.menor(arboles.almacenamiento_velLectura.root, 4315);
+            arboles.almacenamiento_velLectura.myTree.display4(menores);
+            
+            
+            
             
             //arboles.almacenamiento_velLectura.myTree.pruebaComparable(arboles.almacenamiento_velLectura.root);
             // balanceo
             //parece que el balanceo si sirve
-            nodo_binario pruebaBalanceo = arboles.almacenamiento_velLectura.myTree.rotacion(arboles.almacenamiento_velLectura.root);
+            //nodo_binario pruebaBalanceo = arboles.almacenamiento_velLectura.myTree.rotacion(arboles.almacenamiento_velLectura.root);
             //arboles.almacenamiento_velLectura.myTree.display4(pruebaBalanceo);
             //arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
 //TOCA ORDENAR TODO ARBOL EN EL OTRO ARCHIVO            
 //System.out.println(arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315));
+/*            
             nodo_binario mayores = arboles.almacenamiento_velLectura.myTree.mayor(pruebaBalanceo, 4315);
             arboles.almacenamiento_velLectura.myTree.display4(mayores);
             System.out.println("BUSCAME");
             nodo_binario menores = arboles.almacenamiento_velLectura.myTree.menor(pruebaBalanceo, 4315);
             arboles.almacenamiento_velLectura.myTree.display4(menores);
+            */
 
 // mayores pruebas        
             /*
