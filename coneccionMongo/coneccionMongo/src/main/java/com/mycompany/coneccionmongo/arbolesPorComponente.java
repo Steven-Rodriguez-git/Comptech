@@ -9,19 +9,10 @@ import org.bson.Document;
 
 
 import com.mycompany.linearDataStructures.*;
-
+import com.mycompany.coneccionmongo.arbolesPorComponente;
 class retornoMaximo{
     public retornaArbol prueba;
 
-}
-class retornaArbol {
-    public Tree myTree;
-    public nodo_binario root;
-
-    public retornaArbol(Tree myTree, nodo_binario root) {
-        this.myTree = myTree;
-        this.root = root;
-    }
 }
 
 public class arbolesPorComponente {
@@ -137,8 +128,8 @@ public class arbolesPorComponente {
     }
 
     public retornaArbol ArbolImplementar(String coleccion, String caracteristica){
-        System.out.println(coleccion);
-        System.out.println(caracteristica);
+        //System.out.println(coleccion);
+        //System.out.println(caracteristica);
 
         database = this.database;
         Tree myTree = new Tree();

@@ -1,5 +1,8 @@
 package coneccionFront;
+
+import com.mycompany.coneccionmongo.arbolesPorComponente;
 import com.mycompany.coneccionmongo.principal;
+
 import coneccionFront.GetService;
 
 import java.io.File;
@@ -25,7 +28,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 	ClassLoader classLoader = Main.class.getClassLoader();
         SpringApplication.run(Main.class, args);
-
+        principal.creacionArboles();
         
         //principal.creacionArboles();
         //llamo a getService, cuando algo le llegue crea la estructura

@@ -6,7 +6,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from 'react-bootstrap/esm/Button';
 import Typography from '@mui/material/Typography';
 
+async function pedirDatos(){
+  console.log("entro");
+  
+  fetch("http://localhost:8080/");//.then((response) => response.json()).then((dog) => console.log(dog));
+
+}
+
 export default function BigCard() {
+
   return (
     <Card sx={{ width: 600,height:600 }}>
       <CardMedia
@@ -24,7 +32,7 @@ export default function BigCard() {
       </CardContent>
       <CardActions>
     <center>
-      <Button  target="_blank" href="https://www.amazon.com/-/es/i9-12900K-Procesador-escritorio-n%C3%BAcleos-desbloqueado/dp/B09FXDLX95/ref=sr_1_7?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3JIHABF7UE5ST&keywords=intel+core+i9+processor&qid=1654919777&sprefix=procesador+intel+core+i9%2Caps%2C143&sr=8-7" variant="primary">Comprar</Button>
+      <Button  onClick={pedirDatos} target="_blank" variant="primary">Comprar</Button>
       </center>
       </CardActions>
     </Card>

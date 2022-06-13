@@ -17,7 +17,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GetService{ //implements arbolesPorComponente{
-
+    static void ALM_tipo() throws InterruptedException, ExecutionException{
+        arboles.almacenamiento_tipo.myTree.display4(arboles.almacenamiento_tipo.root);
+        //hacer esto por todas, eventualmente le retorno un json?
+    }
     
     public static void prueba(String id) throws InterruptedException, ExecutionException{
         
@@ -32,25 +35,5 @@ public class GetService{ //implements arbolesPorComponente{
 */            
         
     }
-    /*
-  public Almacenamiento getCRUDAlmacenamiento(String documentId)
-    throws InterruptedException, ExecutionException {
-    Firestore dbFireStore = FirestoreClient.getFirestore();
-    DocumentReference documentReference = dbFireStore
-      .collection("almacenamiento")
-      .document(documentId);
-    ApiFuture<DocumentSnapshot> future = documentReference.get();
-    DocumentSnapshot document = future.get();
-
-    Almacenamiento almacenamiento;
-
-    if (document.exists()) {
-        
-      almacenamiento = document.toObject(Almacenamiento.class);
-      return almacenamiento;
-    }
-
-    return null;
     
-    */
   }
