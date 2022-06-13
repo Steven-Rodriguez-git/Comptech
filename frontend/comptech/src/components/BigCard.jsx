@@ -32,7 +32,7 @@ export default function BigCard() {
       </CardContent>
       <CardActions>
     <center>
-      <Button  onClick={pedirDatos} target="_blank" variant="primary">Comprar</Button>
+      <Button  onClick={pedirDatos} variant="primary">Comprar</Button>
       </center>
       </CardActions>
     </Card>

@@ -18,6 +18,33 @@ public class GetController {
     public void ALM_tipo() throws InterruptedException, ExecutionException{
         GetService.ALM_tipo();
     }
+    @GetMapping("/ALM_capcidada")
+    public void ALM_capacidad() throws InterruptedException, ExecutionException{
+        GetService.ALM_capacidad();
+    }
+
+    @GetMapping("/ALM_velLectura")
+    public void ALM_velLectura() throws InterruptedException, ExecutionException{
+        GetService.ALM_velLectura();
+    }
+    @GetMapping("/ALM_velEscritura")
+    public void ALM_velEscritura() throws InterruptedException, ExecutionException{
+        GetService.ALM_velEscritura();
+    }
+    @GetMapping("/ALM_marca")
+    public void ALM_marca() throws InterruptedException, ExecutionException{
+        GetService.ALM_marca();
+    }
+    @GetMapping("/ALM_precio")
+    public void ALM_precio() throws InterruptedException, ExecutionException{
+        GetService.ALM_precio();
+    }
+    @GetMapping("/ALM_nombre")
+    public void ALM_nombre() throws InterruptedException, ExecutionException{
+        GetService.ALM_nombre();
+    }
+
+
     @GetMapping("/")
     public void prueba() throws InterruptedException, ExecutionException{
         GetService.prueba("dios");
