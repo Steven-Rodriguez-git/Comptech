@@ -18,10 +18,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetService{ //implements arbolesPorComponente{
 
-    public static void test(String id) throws InterruptedException, ExecutionException{
+    
+    public static void prueba(String id) throws InterruptedException, ExecutionException{
         
         principal.creacionArboles();
-        
+        System.out.println("ayuda");
 
 //arboles.almacenamiento_velEscritura.myTree.display4(arboles.almacenamiento_velLectura.root);
 

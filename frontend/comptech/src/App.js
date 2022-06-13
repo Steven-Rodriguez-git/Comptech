@@ -7,6 +7,7 @@ import Footer from './common/Footer';
 import { BrowserRouter  as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
+ //let aa = fetch("http://localhost:4000/");
 
   return (
     <Router basename={process.env.PUBLIC_URL}>

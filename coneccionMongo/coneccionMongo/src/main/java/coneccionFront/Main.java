@@ -23,9 +23,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main {
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
+	ClassLoader classLoader = Main.class.getClassLoader();
+        SpringApplication.run(Main.class, args);
+
+        
         //principal.creacionArboles();
         //llamo a getService, cuando algo le llegue crea la estructura
-        GetService.test("45");
+        //GetService.prueba("45");
     
     /*    
         ClassLoader classLoader = GetMicroserviceApplication.class.getClassLoader();
