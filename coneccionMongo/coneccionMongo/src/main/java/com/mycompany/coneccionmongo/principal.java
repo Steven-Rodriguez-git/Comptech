@@ -40,18 +40,19 @@ class ReturningValues {
     }
 }
 
-public class Main {
+public class principal {
     
     private static int cantidadDatosMax =100000;
+    public static arbolesPorComponente arboles;
     
-    public static void main( String[] args ) {
+    public static void creacionArboles( /*String[] args*/ ) {
 
         String uri = "mongodb://localhost:27017";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
-            arbolesPorComponente arboles = new arbolesPorComponente(database);//cree TODO arbol
-            
+             arboles = new arbolesPorComponente(database);//cree TODO arbol
+/*            
             arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
             System.out.println("INICIO");
             nodo_binario mayores = arboles.almacenamiento_velLectura.myTree.mayor(arboles.almacenamiento_velLectura.root, 4315);
@@ -59,7 +60,7 @@ public class Main {
             System.out.println("BUSCAME");
             nodo_binario menores = arboles.almacenamiento_velLectura.myTree.menor(arboles.almacenamiento_velLectura.root, 4315);
             arboles.almacenamiento_velLectura.myTree.display4(menores);
-
+*/
 /*            
             arboles.procesador_marca.myTree.display4(arboles.procesador_marca.root);
             System.out.println("INICIO");
