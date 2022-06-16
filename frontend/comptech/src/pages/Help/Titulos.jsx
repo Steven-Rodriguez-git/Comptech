@@ -1,10 +1,9 @@
-
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 
-export default function Titulos (){ return (
+export default function Titulos(){ 
+  return (
     <Grid
       container
       justify="center"
