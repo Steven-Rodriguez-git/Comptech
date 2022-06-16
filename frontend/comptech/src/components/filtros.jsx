@@ -4,12 +4,8 @@ import Desplegado from "./Desplegado.jsx";
 import Container from "react-bootstrap/esm/Container";
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
-import Cards from "./Cards";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import "../styles/style.css"
-import BetterComponents from "./BetterComponents";
+
 
 export default function filtros() {
   return (
@@ -28,7 +24,6 @@ export default function filtros() {
         </Typography>
       </Grid>
       <Desplegado></Desplegado>
-      {/* aqui toca usar el estado y pasarle datos distintos */}
 
       <Grid>
       <Typography  color="text.secondary">      
