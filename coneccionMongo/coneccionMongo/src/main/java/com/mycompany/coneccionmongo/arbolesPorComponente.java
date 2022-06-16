@@ -139,7 +139,7 @@ public class arbolesPorComponente {
         MongoCursor<Document> cursor = collection.find().iterator();
         try {
             //while (cursor.hasNext()) {
-             for(int i=0;i<100;i++){
+            for(int i=0;i<100;i++){
                 root = myTree.insert(root,(Comparable) cursor.next().get(caracteristica));
          }
         }

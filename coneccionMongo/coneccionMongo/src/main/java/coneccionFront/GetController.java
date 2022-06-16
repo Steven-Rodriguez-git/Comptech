@@ -41,7 +41,8 @@ public class GetController {
     }
     @GetMapping("/ALM_nombre")
     public void ALM_nombre() throws InterruptedException, ExecutionException{
-        GetService.ALM_nombre();
+        //GetService.ALM_nombre();
+        System.out.println("no implementado");
     }
 
 

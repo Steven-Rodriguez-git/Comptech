@@ -32,8 +32,8 @@ const BetterComponents = () => {
         textAlign="center"
         style={{ height: "700px" }}
       >
-        <MediumCard/>
-        <MediumCard/>
+        {/* <MediumCard/>
+        <MediumCard/> */}
       </Grid>
     </Grid>
   );

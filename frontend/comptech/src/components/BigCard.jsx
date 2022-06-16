@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 async function pedirDatos(){
   console.log("entro");
   
-  fetch("http://localhost:8080/");//.then((response) => response.json()).then((dog) => console.log(dog));
+  fetch("http://localhost:8080/ALM_capcidada");//.thenx((response) => response.json()).then((dog) => console.log(dog));
 
 }
 

@@ -14,34 +14,18 @@ import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 
-// const theme = createTheme({
-//     palette: {
-//       background: {
-//         paper: '#e0e0e0',
-//       },
-//       text: {
-//         primary: '#173A5E',
-//         secondary: '#46505A',
-//       },
-//       action: {
-//         active: '#001E3C',
-//       },
-//       success: {
-//         dark: '#009688',
-//       },
-//     },
-//   });
 
 
-const AllComponents = ()=>{
+export default function AllComponents (){
 return(
     // <ThemeProvider theme={theme}>
-    <Grid container spacing={2} fluid style={{ padding: "80px", backgroundColor: "#e0e0e0"}}>
-  
-  <Grid item xs={3} fluid style={{ padding: "80px", backgroundColor: "#fff"}}>
+
+
+  <Grid container spacing={2} fluid style={{ padding: "40px", backgroundColor: "#A23E9B"}}>
+  <Grid item xs={4} fluid style={{ padding: "80px", backgroundColor: "#3EA270"}}>
     <Filtros></Filtros>
   </Grid>
-  <Grid item xs={9}>
+  <Grid item xs={7}>
     <CardsComponents/>
   </Grid>
 
@@ -56,5 +40,3 @@ return(
 
 );
 };
-
-export default AllComponents;

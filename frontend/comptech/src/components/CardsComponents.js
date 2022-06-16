@@ -15,7 +15,10 @@ const CardsComponents = () => {
           <center><h1 className="title">Mejores componentes</h1></center>
           <BetterComponents/>
         <Row>
-          <Col>
+          {/* <Col>
+            <Cards />
+          </Col> */}
+          {/* <Col>
             <Cards />
           </Col>
           <Col>
@@ -23,10 +26,7 @@ const CardsComponents = () => {
           </Col>
           <Col>
             <Cards />
-          </Col>
-          <Col>
-            <Cards />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </React.Fragment>
