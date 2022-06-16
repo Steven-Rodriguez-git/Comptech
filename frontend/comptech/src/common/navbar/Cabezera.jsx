@@ -1,5 +1,3 @@
-
-import * as React from 'react';
 import Tabs from './Tabs';
 import Busqueda from './Busqueda';
 import Box from '@mui/material/Box';
