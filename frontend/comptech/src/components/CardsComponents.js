@@ -15,18 +15,6 @@ const CardsComponents = () => {
           <center><h1 className="title">Mejores componentes</h1></center>
           <BetterComponents/>
         <Row>
-          {/* <Col>
-            <Cards />
-          </Col> */}
-          {/* <Col>
-            <Cards />
-          </Col>
-          <Col>
-            <Cards />
-          </Col>
-          <Col>
-            <Cards />
-          </Col> */}
         </Row>
       </Container>
     </React.Fragment>

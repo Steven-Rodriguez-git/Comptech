@@ -64,12 +64,10 @@ export default function Computadoras(){
         <React.Fragment>
           <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
           <CssBaseline />
-        
-          {/* End hero unit */}
+
           <Container maxWidth="md" component="main">
             <Grid container spacing={5} alignItems="flex-end">
               {tiers.map((tier) => (
-                // Enterprise card is full width at sm breakpoint
                 <Grid
                   item
                   key={tier.title}
@@ -130,9 +128,6 @@ export default function Computadoras(){
               ))}
             </Grid>
           </Container>
-          {/* Footer */}
-  
-          {/* End footer */}
         </React.Fragment>
       );
     

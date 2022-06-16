@@ -30,19 +30,6 @@ public class Main {
         SpringApplication.run(Main.class, args);
         principal.creacionArboles();
         
-        //principal.creacionArboles();
-        //llamo a getService, cuando algo le llegue crea la estructura
-        //GetService.prueba("45");
-    
-    /*    
-        ClassLoader classLoader = GetMicroserviceApplication.class.getClassLoader();
-
-	File file = new File(Objects.requireNonNull(classLoader.getResource("steven-admin-privatekey-firebase.json")).getFile());
-	FileInputStream serviceAccount = new FileInputStream(file.getAbsolutePath());
-
-        SpringApplication.run(GetMicroserviceApplication.class, args);
-	*/
-        
         
     }
     

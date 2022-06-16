@@ -35,10 +35,9 @@ export default function MultipleSelect() {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
-    const arbolesTraidos = pedirDatos(personName);//pida los datos, TODO valor
+    const arbolesTraidos = pedirDatos(personName);
     
 };
 
