@@ -1,18 +1,7 @@
 import CardsComponents from "../../components/CardsComponents.js";
-import Filtros from "../../components/filtros.jsx";
+import Filtros from "../../components/Filtros.jsx";
 
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import createTheme from '@mui/material/styles/createTheme';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CardHeader from '@mui/material/CardHeader';
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import StarIcon from '@mui/icons-material/StarBorder';
-import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import Container from '@mui/material/Container';
 
 
 
