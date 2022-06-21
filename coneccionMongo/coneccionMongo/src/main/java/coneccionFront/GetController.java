@@ -49,6 +49,7 @@ public class GetController {
     @GetMapping("/")
     public void prueba() throws InterruptedException, ExecutionException{
         GetService.prueba("dios");
+        
     }
  
     @GetMapping("/segundo")

@@ -5,6 +5,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mycompany.linearDataStructures.Map;
 import com.mycompany.linearDataStructures.Tree;
+import com.mycompany.linearDataStructures.ArrayList;
 import com.mycompany.linearDataStructures.nodo_binario;
 import org.bson.Document;
 
@@ -17,15 +18,16 @@ public class hashPorComponente {
         {"capacidad","arquitectura","velocidad","tasaTransferencia","marca","precio"}
 };
     public MongoDatabase database;
-    public Map<String, Integer> map = new Map<>();
-
+    public Map<String, ArrayList> map = new Map<>();
+    public int i,j;
+    
 
 
     public hashPorComponente(MongoDatabase database){
        this.database = database;
         
-        for(int i=0;i<=4;i++){
-            for(int j=0;j<datos[i].length;j++){
+        for(i=0;i<=4;i++){
+            for(j=0;j<datos[i].length;j++){                
                 hashImplementar(coleccion[i],datos[i][j]);
            }
        }
@@ -43,10 +45,18 @@ public class hashPorComponente {
         Comparable data;
         MongoCollection<Document> collection = database.getCollection(coleccion);
         MongoCursor<Document> cursor = collection.find().iterator();
+        MongoCursor<Document> respaldoCursor = collection.find().iterator();
+        String[] componentesNoUsados=datos[i];
+        ArrayList copiaArraylist = new ArrayList();
         try {
             //while (cursor.hasNext()) {
             for(Integer i=0;i<100;i++){
-                map.add((cursor.next().get(caracteristica)).toString(), i);//el valor que les voy a dar
+                ArrayList arraylist = new ArrayList();
+                for(int k=0;k<datos[i][j].length();k++){
+                    arraylist.push((Comparable) respaldoCursor.next().get(componentesNoUsados[k]));
+                }
+                copiaArraylist = arraylist;
+                map.add((cursor.next().get(caracteristica)).toString(), copiaArraylist);//el valor que les voy a dar
             }
         }
          catch(Error E){

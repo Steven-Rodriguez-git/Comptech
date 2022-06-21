@@ -8,6 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.*;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
 
 import com.mycompany.linearDataStructures.ALCircular;
 import com.mycompany.linearDataStructures.ArrayList;
@@ -31,6 +33,7 @@ import com.mongodb.client.result.*;
 import org.bson.types.ObjectId;
 import static com.mongodb.client.model.Updates.*;
 import com.mongodb.client.model.Filters.*;
+import org.json.JSONObject;
 
 class ReturningValues {
     public Tree myTree;
@@ -48,6 +51,8 @@ public class principal {
     public static arbolesPorComponente arboles;
     public static hashPorComponente hash;
     public static Map mapaTodo;
+    public static Map<String, ArrayList> map = new Map<>();
+
     
     public static void llamadoBase( /*String[] args*/ ) {
 
@@ -56,10 +61,26 @@ public class principal {
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
             arboles = new arbolesPorComponente(database);//cree TODO arbol
-            hash = new hashPorComponente(database);
-            mapaTodo = hash.map;
+            //hash = new hashPorComponente(database);
+            //mapaTodo = hash.map;
             
             
+            MongoCollection<Document> collection = database.getCollection("almacenamiento");
+            MongoCursor<Document> cursor = collection.find().iterator();
+            MongoCursor<Document> respaldoCursor = collection.find().iterator();
+            
+            System.out.println((cursor.next().toJson()).getClass().getSimpleName());
+            
+            ArrayList arraylist = new ArrayList();
+            String[] componentesNoUsados={"capacidad","tipo","velLectura","velEscritura","marca","precio"};
+            
+            
+            for(int k=0;k<6;k++){
+                System.out.println(database.getCollection("almacenamiento"));
+                    //arraylist.push((Comparable) database.getCollection("almacenamiento"));
+                }
+                //map.add((cursor.next().get(caracteristica)).toString(), copiaArraylist);//el valor que les voy a dar
+
 /*            
             arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
             System.out.println("INICIO");
@@ -259,6 +280,7 @@ public class principal {
     MongoCursor<Document> respaldo = collection.find().iterator();
     Cola cola = new Cola();
 
+    
     int cantidadDatos = cantidadDatosMax;
 
     long beginRead = System.currentTimeMillis();

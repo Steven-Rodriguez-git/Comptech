@@ -49,8 +49,9 @@ public class GetService{ //implements arbolesPorComponente{
     
     public static void prueba(String id) throws InterruptedException, ExecutionException{
         System.out.println(mapaTodo.get("1183"));
-        System.out.println(mapaTodo.get("HHD"));
+        System.out.println(mapaTodo.get("HHD"));//asumo que funciona
         System.out.println("ayuda");
+        
         
         
 //arboles.almacenamiento_velEscritura.myTree.display4(arboles.almacenamiento_velLectura.root);
