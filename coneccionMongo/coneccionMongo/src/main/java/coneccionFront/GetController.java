@@ -18,7 +18,7 @@ public class GetController {
     public void ALM_tipo() throws InterruptedException, ExecutionException{
         GetService.ALM_tipo();
     }
-    @GetMapping("/ALM_capcidada")
+    @GetMapping("/ALM_capacidad")
     public void ALM_capacidad() throws InterruptedException, ExecutionException{
         GetService.ALM_capacidad();
     }

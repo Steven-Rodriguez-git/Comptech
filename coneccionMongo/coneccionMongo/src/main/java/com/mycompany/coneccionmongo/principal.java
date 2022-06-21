@@ -16,6 +16,8 @@ import com.mycompany.linearDataStructures.Pilas;
 import com.mycompany.linearDataStructures.Tree;
 import com.mycompany.linearDataStructures.linkedList;
 import com.mycompany.linearDataStructures.nodo_binario;
+import com.mycompany.linearDataStructures.HashNode;
+import com.mycompany.linearDataStructures.Map;
 import com.mycompany.linearDataStructures.nodo;
 import com.mycompany.coneccionmongo.arbolesPorComponente;
 
@@ -44,14 +46,20 @@ public class principal {
     
     private static int cantidadDatosMax =100000;
     public static arbolesPorComponente arboles;
+    public static hashPorComponente hash;
+    public static Map mapaTodo;
     
-    public static void creacionArboles( /*String[] args*/ ) {
+    public static void llamadoBase( /*String[] args*/ ) {
 
         String uri = "mongodb://localhost:27017";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
-             arboles = new arbolesPorComponente(database);//cree TODO arbol
+            arboles = new arbolesPorComponente(database);//cree TODO arbol
+            hash = new hashPorComponente(database);
+            mapaTodo = hash.map;
+            
+            
 /*            
             arboles.almacenamiento_velLectura.myTree.display4(arboles.almacenamiento_velLectura.root);
             System.out.println("INICIO");
