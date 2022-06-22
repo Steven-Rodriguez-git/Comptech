@@ -14,8 +14,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 	ClassLoader classLoader = Main.class.getClassLoader();
         SpringApplication.run(Main.class, args);
-        principal.creacionArboles();
-        
+        principal.llamadoBase();
         
     }
     

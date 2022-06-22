@@ -39,6 +39,7 @@ export default function filtros() {
         </Typography>
       </Grid>
       <Desplegado></Desplegado>
+      {/* <Desplegado handler=handler() ></Desplegado> envio y creo una funcion que almacene en una variable todos los estados actuales*/}
           
       <Grid>
       <Typography  color="text.secondary">      

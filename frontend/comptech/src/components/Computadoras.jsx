@@ -57,7 +57,7 @@ const tiers = [
 
 export default function Computadoras(){
     return (
-        <React.Fragment>
+        <Fragment>
           <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
           <CssBaseline />
 
@@ -124,7 +124,7 @@ export default function Computadoras(){
               ))}
             </Grid>
           </Container>
-        </React.Fragment>
+        </Fragment>
       );
     
 }

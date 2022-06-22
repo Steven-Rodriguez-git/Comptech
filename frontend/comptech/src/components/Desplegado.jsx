@@ -5,17 +5,19 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
+// todo esto toca pensarlo y no tiene que estar aqui
 async function pedirDatos(atributo){
     
     console.log(atributo);
 
     let url = 'http://localhost:8080/';
     url = url + atributo[0];
-    fetch(url);//.thenx((response) => response.json()).then((dog) => console.log(dog));
+    fetch(url);//.then((response) => response.json()).then((constante) => console.log(prueba));
     console.log(url);
   }
 
-const names = [
+const componentes = [
   'ALM_tipo',
   'ALM_capacidad',
   'ALM_velLectura',
@@ -27,17 +29,15 @@ const names = [
 
 
 export default function MultipleSelect() {
-  const [personName, setPersonName] = React.useState([]);
-  const[select, setSelect]=React.useState([]);
+  const[select, setSelect]=React.useState([]); 
 
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
-    const arbolesTraidos = pedirDatos(personName);
+    setSelect(value);
+    
+    const arbolesTraidos = pedirDatos(select);
     
 };
 
@@ -49,11 +49,12 @@ export default function MultipleSelect() {
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           multiple
-          value={personName}
+          value={select}
           onChange={handleChange}
+          // onChange={props.handle} //vaya a la funcion del padre, lifting state
           input={<OutlinedInput label="Name" />}
         >
-          {names.map((name) => (
+          {componentes.map((name) => (
             <MenuItem
               key={name}
               value={name}

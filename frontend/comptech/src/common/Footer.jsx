@@ -25,7 +25,7 @@ const footers = [
   ];
   const Footer = () => {
     return (
-        <React.Fragment>
+        <Fragment>
           <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
 
           <Container
@@ -58,7 +58,7 @@ const footers = [
             </Grid>
           </Container>
           {/* End footer */}
-        </React.Fragment>
+        </Fragment>
       );
 
 }

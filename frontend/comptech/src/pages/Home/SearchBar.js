@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Desplegado from "../../components/Desplegado";
 
 
 const SearchBar = () => {
@@ -26,7 +27,10 @@ const SearchBar = () => {
         maxWidth: '100%',
       }}
     >
-      <TextField fullWidth label="Compara componentes" id="fullWidth" />
+      {/* <TextField fullWidth label="Compara componentes" id="fullWidth" /> */}
+      <Desplegado></Desplegado>
+      <Desplegado></Desplegado>
+      {/* TODO AQUI ESTA EL CAMBIO PARA MOSTRAR LA IDEA */}
     </Box>
         </Grid>
       </Grid>

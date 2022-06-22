@@ -3,6 +3,7 @@ package coneccionFront;
 import com.mycompany.coneccionmongo.principal;
 import com.mycompany.coneccionmongo.arbolesPorComponente;
 import static com.mycompany.coneccionmongo.principal.arboles;
+import static com.mycompany.coneccionmongo.principal.mapaTodo;
 import com.mycompany.linearDataStructures.*;
 
 import java.util.concurrent.ExecutionException;
@@ -47,10 +48,12 @@ public class GetService{ //implements arbolesPorComponente{
     */
     
     public static void prueba(String id) throws InterruptedException, ExecutionException{
-        
-        principal.creacionArboles();
+        System.out.println(mapaTodo.get("1183"));
+        System.out.println(mapaTodo.get("HHD"));//asumo que funciona
         System.out.println("ayuda");
-
+        
+        
+        
 //arboles.almacenamiento_velEscritura.myTree.display4(arboles.almacenamiento_velLectura.root);
 
 /*        
