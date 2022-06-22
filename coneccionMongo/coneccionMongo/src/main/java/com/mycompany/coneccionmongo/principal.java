@@ -8,8 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.*;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.mycompany.linearDataStructures.ALCircular;
 import com.mycompany.linearDataStructures.ArrayList;
@@ -69,11 +69,12 @@ public class principal {
             MongoCursor<Document> cursor = collection.find().iterator();
             MongoCursor<Document> respaldoCursor = collection.find().iterator();
             
-            System.out.println((cursor.next().toJson()).getClass().getSimpleName());
+            
+            String prueba = (cursor.next()).toJson();
             
             ArrayList arraylist = new ArrayList();
             String[] componentesNoUsados={"capacidad","tipo","velLectura","velEscritura","marca","precio"};
-            
+            System.out.println(prueba);
             
             for(int k=0;k<6;k++){
                 System.out.println(database.getCollection("almacenamiento"));
