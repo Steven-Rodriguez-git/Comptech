@@ -18,16 +18,15 @@ public class hashPorComponente {
         {"capacidad","arquitectura","velocidad","tasaTransferencia","marca","precio"}
 };
     public MongoDatabase database;
-    public Map<String, ArrayList> map = new Map<>();
-    public int i,j;
+    public Map<String, String> map = new Map<>();
     
 
 
     public hashPorComponente(MongoDatabase database){
        this.database = database;
         
-        for(i=0;i<=4;i++){
-            for(j=0;j<datos[i].length;j++){                
+        for(int i=0;i<=4;i++){
+            for(int j=0;j<datos[i].length;j++){                
                 hashImplementar(coleccion[i],datos[i][j]);
            }
        }
@@ -46,18 +45,13 @@ public class hashPorComponente {
         MongoCollection<Document> collection = database.getCollection(coleccion);
         MongoCursor<Document> cursor = collection.find().iterator();
         MongoCursor<Document> respaldoCursor = collection.find().iterator();
-        String[] componentesNoUsados=datos[i];
-        ArrayList copiaArraylist = new ArrayList();
         try {
             //while (cursor.hasNext()) {
             for(Integer i=0;i<100;i++){
-                ArrayList arraylist = new ArrayList();
-                for(int k=0;k<datos[i][j].length();k++){
-                    arraylist.push((Comparable) respaldoCursor.next().get(componentesNoUsados[k]));
-                }
-                copiaArraylist = arraylist;
-                map.add((cursor.next().get(caracteristica)).toString(), copiaArraylist);//el valor que les voy a dar
+                map.add((cursor.next().get(caracteristica)).toString(),respaldoCursor.next().toJson());//el valor que les voy a dar
+                //guarde en el mapa que representa el hash la caracteristica que pido como llave y como valor toda la coleccion asociada a si misma
             }
+
         }
          catch(Error E){
          System.out.println(E);
