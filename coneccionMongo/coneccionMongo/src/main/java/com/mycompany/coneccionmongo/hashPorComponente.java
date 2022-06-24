@@ -45,9 +45,11 @@ public class hashPorComponente {
         MongoCollection<Document> collection = database.getCollection(coleccion);
         MongoCursor<Document> cursor = collection.find().iterator();
         MongoCursor<Document> respaldoCursor = collection.find().iterator();
+        //String retorno;
         try {
             //while (cursor.hasNext()) {
             for(Integer i=0;i<100;i++){
+                //retorno = (respaldoCursor.next().toJson());
                 map.add((cursor.next().get(caracteristica)).toString(),respaldoCursor.next().toJson());//el valor que les voy a dar
                 //guarde en el mapa que representa el hash la caracteristica que pido como llave y como valor toda la coleccion asociada a si misma
             }
