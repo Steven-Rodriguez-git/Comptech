@@ -15,9 +15,25 @@ public class GetController {
 //Procesador: PRO
 //Ram: RAM
     
-    @GetMapping("/Request")
-    public String Request(@RequestParam String valor) throws InterruptedException, ExecutionException{
-        return GetService.Request(valor);
+    @GetMapping("/ALM")
+    public String ALM(@RequestParam String valor) throws InterruptedException, ExecutionException{
+        return GetService.ALM(valor);
+    }
+    @GetMapping("/BO")
+    public String BO(@RequestParam String valor) throws InterruptedException, ExecutionException{
+        return GetService.BO(valor);
+    }
+    @GetMapping("/GRA")
+    public String GRA(@RequestParam String valor) throws InterruptedException, ExecutionException{
+        return GetService.GRA(valor);
+    }
+    @GetMapping("/PRO")
+    public String PRO(@RequestParam String valor) throws InterruptedException, ExecutionException{
+        return GetService.PRO(valor);
+    }
+    @GetMapping("/RAM")
+    public String RAM(@RequestParam String valor) throws InterruptedException, ExecutionException{
+        return GetService.RAM(valor);
     }
     @GetMapping("/")
     public String prueba(@RequestParam String valor) throws InterruptedException, ExecutionException{

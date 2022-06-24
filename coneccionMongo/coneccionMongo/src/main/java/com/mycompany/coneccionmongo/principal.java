@@ -47,7 +47,12 @@ public class principal {
     private static int cantidadDatosMax =100000;
     public static arbolesPorComponente arboles;
     public static hashPorComponente hash;
-    public static Map mapaTodo;
+    public static Map mapaALM;
+    public static Map mapaBO;
+    public static Map mapaGRA;
+    public static Map mapaPRO;
+    public static Map mapaRAM;
+    
     public static Map<String, ArrayList> map = new Map<>();
 
     
@@ -59,7 +64,11 @@ public class principal {
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
             arboles = new arbolesPorComponente(database);//cree TODO arbol
             hash = new hashPorComponente(database);
-            mapaTodo = hash.map;
+            mapaALM = hash.mapALM;
+            mapaBO = hash.mapBO;
+            mapaGRA = hash.mapGRA;
+            mapaPRO = hash.mapPRO;
+            mapaRAM = hash.mapRAM;
             
             //map.add((cursor.next().get(caracteristica)).toString(), copiaArraylist);//el valor que les voy a dar
 
