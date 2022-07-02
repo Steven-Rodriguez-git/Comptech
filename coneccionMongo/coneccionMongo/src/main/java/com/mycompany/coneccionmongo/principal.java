@@ -31,6 +31,7 @@ import com.mongodb.client.result.*;
 import org.bson.types.ObjectId;
 import static com.mongodb.client.model.Updates.*;
 import com.mongodb.client.model.Filters.*;
+import com.mycompany.linearDataStructures.Graph;
 
 class ReturningValues {
     public Tree myTree;
@@ -52,6 +53,7 @@ public class principal {
     public static Map mapaGRA;
     public static Map mapaPRO;
     public static Map mapaRAM;
+    public static Graph<Integer> g;
     
     public static Map<String, ArrayList> map = new Map<>();
 
@@ -62,13 +64,44 @@ public class principal {
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {//busque en la url si hay cliente mongo
             MongoDatabase database = mongoClient.getDatabase("proyecto");//traiga toda la base de datos proyecto
-            arboles = new arbolesPorComponente(database);//cree TODO arbol
-            hash = new hashPorComponente(database);
-            mapaALM = hash.mapALM;
-            mapaBO = hash.mapBO;
-            mapaGRA = hash.mapGRA;
-            mapaPRO = hash.mapPRO;
-            mapaRAM = hash.mapRAM;
+            //arboles = new arbolesPorComponente(database);//cree TODO arbol
+            //hash = new hashPorComponente(database);
+            //mapaALM = hash.mapALM;
+            //mapaBO = hash.mapBO;
+            //mapaGRA = hash.mapGRA;
+            //mapaPRO = hash.mapPRO;
+            //mapaRAM = hash.mapRAM;
+            
+            // Object of graph is created.
+		g = new Graph();
+                System.out.println(g);
+		// edges are added.
+		// Since the graph is bidirectional,
+		// so boolean bidirectional is passed as true.
+		g.addEdge(0, 1, true);
+		g.addEdge(0, 4, true);
+		g.addEdge(1, 2, true);
+		g.addEdge(1, 3, true);
+		g.addEdge(1, 4, true);
+		g.addEdge(2, 3, true);
+		g.addEdge(3, 4, true);
+
+		// Printing the graph
+		System.out.println("Graph:\n"
+						+ g.toString());
+
+		// Gives the no of vertices in the graph.
+		g.getVertexCount();
+
+		// Gives the no of edges in the graph.
+		g.getEdgesCount(true);
+
+		// Tells whether the edge is present or not.
+		g.hasEdge(3, 4);
+
+		// Tells whether vertex is present or not
+		g.hasVertex(5);
+	
             
             //map.add((cursor.next().get(caracteristica)).toString(), copiaArraylist);//el valor que les voy a dar
 
@@ -357,7 +390,7 @@ public class principal {
     
     long beginDelete = System.currentTimeMillis();
     for(int i=0;i<cantidadDatos;i++){
-        listaEnlazada.popFront(); 
+        listaEnlazada.popFront(listaEnlazada.head); 
     }
     long endDelete= System.currentTimeMillis();
     System.out.println("tiempo usado en la elmininacion de LINKEDLIST para "+cantidadDatos+" datos: "+ (endDelete-beginDelete));

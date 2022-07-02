@@ -13,7 +13,7 @@ package com.mycompany.linearDataStructures;
  */
 public class linkedList {  //Es una LinkedList pero sin cola  y 1 solo enlace osea simple
 
-    private nodo head = null;
+    public nodo head = null;
 
     public void add(Comparable dato) {
         nodo start = head;
@@ -102,7 +102,7 @@ public class linkedList {  //Es una LinkedList pero sin cola  y 1 solo enlace os
     }
 
      */
-    public Comparable popFront() {   // Arreglado el error de cuando habia 1 solo dato
+    public Comparable popFront(nodo head) {   // Arreglado el error de cuando habia 1 solo dato
         if (head != null) {
             nodo popped = head;
             head = head.siguiente;

@@ -1,11 +1,12 @@
 package com.mycompany.linearDataStructures;
 
 // Class to represent entire hash table
-
-import java.util.Objects;
+import com.mycompany.linearDataStructures.ArrayList;
+import java.util.Objects    ;
 
 public class Map<K, V> {
     // bucketArray is used to store array of chains
+    //new ArrayList()
     private java.util.ArrayList<HashNode<K, V> > bucketArray;
  
     // Current capacity of array list
@@ -19,7 +20,7 @@ public class Map<K, V> {
     public Map()
     {
         bucketArray = new java.util.ArrayList<>();
-        numBuckets = 10;//DEBE SER UN PRIMO
+        numBuckets = 11;//DEBE SER UN PRIMO
         size = 0;
  
         // Create empty chains
@@ -46,6 +47,27 @@ public class Map<K, V> {
     }
  
     // Method to remove a given key
+    public String[] keySet(){
+        linkedList listaEnlazada = new linkedList();
+
+        //int bucketIndex = getBucketIndex();
+        int hashCode = hashCode();
+        
+        HashNode<K, V> head = bucketArray.get(0);
+ 
+        // Search key in chain
+        while (head != null) {
+            listaEnlazada.add((Comparable) head.key);
+            head = head.next;
+        }
+ 
+        // If key not found
+        String[] retorno = new String[listaEnlazada.getSize(listaEnlazada.head)];
+        
+        return retorno;
+
+    
+    }
     public V remove(K key)
     {
         // Apply hash function to find index for given key
@@ -87,7 +109,7 @@ public class Map<K, V> {
     {
         // Find head of chain for given key
         int bucketIndex = getBucketIndex(key);
-          int hashCode = hashCode(key);
+        int hashCode = hashCode(key);
        
         HashNode<K, V> head = bucketArray.get(bucketIndex);
  

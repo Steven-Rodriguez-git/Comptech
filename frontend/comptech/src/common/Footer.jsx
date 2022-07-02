@@ -12,15 +12,12 @@ const footers = [
       title: 'DESCUBRE EL "EQUIPO"',
       description: [
         'Nelson Steven Rodríguez ',
-        'David Alfonso Cañas ',
-        'Juan David Tique ',
-        'Diana Marcela Bello ',
-        'Cesar Esteban Epia ',
+        'David Alfonso Cañas '
       ],
     },
     {
       title: 'CONTACTANOS',
-      description: ['nerodriguezo@unal.edu.co', 'dcanasp@unal.edu.co', 'Los otros no ayudaron :v'],
+      description: ['nerodriguezo@unal.edu.co', 'dcanasp@unal.edu.co'],
     }
     
   ];

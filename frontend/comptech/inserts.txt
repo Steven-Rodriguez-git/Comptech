@@ -1,0 +1,62 @@
+INSERTS IDENTIFICACIÓN
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Documentación del proceso','Procedimientos, instructivos, guías, formatos, metodologías ','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Servidores','Servidores fisícos y virtuales de sistemas de información y bases de datos que soportan la operacón de OIT.','Dispositivos de Tecnologías de Información - Hardware','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Conectividad','Red cableada, red wifi, vpn, internet, canales de datos','Redes de Comunicaciones','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Seguridad','Antivirus, WAF, Seguridad Perimetral','Dispositivos de Tecnologías de Información - Hardware','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Software Licenciado','Software de sistema operativo, ofimática, Argis, Manejadores de Bases de Datos, Toad, VSS,  Oracle','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Sistemas de Información','Wiki, Gestión de Credenciales, Gestión de Proyectos, Sistemas de documentación de Infraestructura, Sistema de Gestión de Mesa Servicios. ','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Bases de Datos - Infraestructura','Bases de datos estructuradas que soportan las aplicaciones y sistemas de información de Infraestructura de OIT.','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Repositorios de Código Fuente','Codigo de los sistemas de información y aplicaciones desarrollados internamente y de proveedores','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Almacenamiento','Almacenamiento en red NAS, Red almacenamiento para procesamiento SAN.','Soporte para Almacenamiento de Información','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Backup','Respaldo de Bases de datos Postgres, ERP y MariaDB,  Sistema Nacional Catastral. ','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Correo Electrónico','Servicio de correo electrónico, almacenamiento (drive).','Servicios','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Directorio Activo','Administración de usuarios, DNS, DHCP, Políticas de Seguridad.','Servicios','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Telefonía','Servicio de comunicaciones de voz y video conferencias.','Servicios','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Manuales, instructivos y guías de Configuración y Operación','Manuales, instructivos y guías de de configuración y operación de la infraestructura tecnológica del IGAC','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Diagramas de Topologia de red','Diagramas de la red del IGAC','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Documentación de los aplicativos','Documentacion de requerimientos, pruebas entre otros de los aplicativos y sistemas de información del IGAC','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Monitoreo Data Center','Informes de Control de Acceso al Data Center.','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Procesamiento','Aprovisionamiento de procesamiento para aplicaciones (Servidores Físicos y Virtuales)','Servicios','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Servicios de actualización de plataforma IAS','Despliegue de actualizaciones de sistemas operativos y aplicaciones.','Servicios','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Infraestructura Tecnológica','Planes, Programas y Proyectos, Plan Estratégico de Tecnologías de Información y Comunicaciones. ','Plan estratégico','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Gestión de Software','Gestión Informática, Gestión de Software','Documentación técnica (digital), Registro de pruebas  (digital), Manuales de usuario','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Gestión de Software','Reporte de fallos (GLPI)','Reporte de fallos (GLPI)','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Gestión de Software','Administrador de usuarios /LDAP','Sistema para la gestión de roles y permisos a los aplicativos, permite la gestión por parte de los delegados de cada área.','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Gestión de Software','Web Services proposito general','Conjunto de web service para servicios internos y externos, que ofrecen apoyo en los procesos
+Firma digital de archivos PDF (wsFirmasPDF)
+Formateo de los certificados a PDF (wsFOP)','Sistemas de Información y Aplicaciones de Software','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('Oficina Informática y Telecomunicaciones','Grupo Interno de Trabajo Gestión de Software','Ambientes de desarrollo y pruebas','Archivos de Configuración de ambientes de desarrollo y pruebas','Información y datos de la Entidad','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('N/A','N/A','N/A','N/A','N/A','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('N/A','N/A','N/A','N/A','N/A','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('N/A','N/A','N/A','N/A','N/A','N/A','Talento Humano');
+
+insert into Identificacion(TipoArchivo,periodoVigencia,FK_dependenciaID,fk_oficinayGrupoTrabajo,nombreActivo,tipoActivo,placa,descripcion) values('N/A','N/A','N/A','N/A','N/A','N/A','Talento Humano');
+
